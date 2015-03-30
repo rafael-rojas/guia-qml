@@ -13,6 +13,18 @@ propiedades de gestión de LAyout
 anchors
 margins 
 
+Key handling 	
+attached Key and KeyNavigation properties to control key handling and the input focus property to enable key handling in the first place
+
+Transformation 	
+scale and rotate transformation and the generic transform property list for x,y,z transformation and their transformOrigin point
+
+Visual 	
+opacity to control transparency, visible to show/hide elements, clip to restrain paint operations to the element boundary and smooth to enhance the rendering quality
+
+State definition 	
+states list property with the supported list of states and the current state property as also the transitions list property to animate state changes.
+
 los tipos basicos que vienen con import Qtquick 2
 http://doc.qt.io/qt-5/qmlbasictypes.html
 
