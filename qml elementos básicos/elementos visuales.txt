@@ -1,3 +1,17 @@
+propiedades comunes de elementos qml
+
+id se suele usar para darle un nombre a referenciar
+
+propiedades de geometria
+x posicion x
+y posicion y
+z posicion z
+width ancho del elemento
+height alto del elemento
+
+propiedades de gestión de LAyout
+anchors
+margins 
 
 los tipos basicos que vienen con import Qtquick 2
 http://doc.qt.io/qt-5/qmlbasictypes.html
@@ -10,6 +24,13 @@ ELEMENTOS VISUALES
 
 Texto
 Se usa para mostrar un texto
+puedes usar el grupo de propiedades de fuente para modificar la fuente
+elide
+Wrapmode
+style
+styleColor
+
+El texto no tiene fondo
 
 propiedades
 	text en esta propiedad escribes el texto a mostrar
