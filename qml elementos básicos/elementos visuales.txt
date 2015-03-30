@@ -2,7 +2,17 @@
 los tipos basicos que vienen con import Qtquick 2
 http://doc.qt.io/qt-5/qmlbasictypes.html
 
+sigo el apartado de http://qmlbook.github.io/en/ch04/index.html#basic-elements
+
+ELEMENTOS BASICOS
+
+ELEMENTOS VISUALES
+
 Texto
+Se usa para mostrar un texto
+
+propiedades
+	text en esta propiedad escribes el texto a mostrar
 
 Rectangulo
 http://doc.qt.io/qt-5/qml-qtquick-rectangle.html
