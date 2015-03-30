@@ -1,6 +1,9 @@
 
 tipos basicos de qml
-http://doc.qt.io/qt-5/qml-tutorial1.html
+http://doc.qt.io/qt-5/qmlbasictypes.html
+
+Todos los tipos de qml
+http://doc.qt.io/qt-5/qmltypes.html
 
 Libro de qml
 http://qmlbook.github.io/

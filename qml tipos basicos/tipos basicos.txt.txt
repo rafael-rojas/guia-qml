@@ -1,2 +1,34 @@
 
 los tipos basicos que vienen con import Qtquick 2
+http://doc.qt.io/qt-5/qmlbasictypes.html
+
+Texto
+
+Rectangulo
+http://doc.qt.io/qt-5/qml-qtquick-rectangle.html
+
+propiedades
+
+    antialiasing : se usa para que los bordes redondeados se vean bien
+    border.width : ancho del borde
+    border.color : color del borde
+    color : color de relleno, el color por defecto es el blanco
+    gradient : rellenar usando un gradiente
+    radius : hacer los bordes redondeados
+
+Si defines la propiedad color y la propiedad gradiente, se usará el gradiente.
+Si defines un color de borde y no quieres que el rectangulo tenga relleno puedes poner color a transparent
+
+ejemplo (sacado de la web)
+
+import QtQuick 2.0
+
+Rectangle {
+    width: 100
+    height: 100
+    color: "red"
+    border.color: "black"
+    border.width: 5
+    radius: 10
+}
+
