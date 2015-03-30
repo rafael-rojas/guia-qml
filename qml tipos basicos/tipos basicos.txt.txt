@@ -1,0 +1,2 @@
+
+los tipos basicos que vienen con import Qtquick 2
