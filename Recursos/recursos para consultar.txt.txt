@@ -1,0 +1,23 @@
+
+tipos basicos de qml
+http://doc.qt.io/qt-5/qml-tutorial1.html
+
+Libro de qml
+http://qmlbook.github.io/
+
+David Edmunson tutorial plasmoid
+parte 1
+http://blog.davidedmundson.co.uk/node/89
+parte 2
+http://blog.davidedmundson.co.uk/node/92
+parte 3
+http://blog.davidedmundson.co.uk/node/91
+
+objeto  XMLHttpRequest
+http://doc.qt.io/qt-5/qtqml-javascript-qmlglobalobject.html
+
+modulos qml disponibles
+http://doc.qt.io/qt-5/qmlmodules.html
+
+qtquickcontrols de breeze
+https://projects.kde.org/projects/kde/workspace/breeze/repository/revisions/master/show/qtquickcontrols
