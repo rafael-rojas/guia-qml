@@ -24,3 +24,6 @@ http://doc.qt.io/qt-5/qmlmodules.html
 
 qtquickcontrols de breeze
 https://projects.kde.org/projects/kde/workspace/breeze/repository/revisions/master/show/qtquickcontrols
+
+javascript en docuemtnos qml
+http://doc.qt.io/qt-5/qtqml-javascript-expressions.html
