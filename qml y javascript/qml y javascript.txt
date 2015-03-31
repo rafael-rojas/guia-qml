@@ -1,0 +1,19 @@
+
+basado en
+http://doc.qt.io/qt-5/qtqml-javascript-expressions.html
+
+Lo primero que tenemos que tener en cuenta es que el entorno javascript proporcioando por qml es mas estricto que el del navegador.
+En QML no puedes ni añadir ni modificar miembros del objeto global. Esto implica que todas las variables locales deben ser explictamente declaradas.
+
+En http://doc.qt.io/qt-5/qtqml-javascript-hostenvironment.html#javascript-environment-restrictions puedes ver la lista de restricciones completa, un pequeño resumen:
+
+El codigo JavaScript no puede modificar el objeto global. La creación de variables no declaradas es una modificación implicita del objeto global y por tanto no esta permitida.
+El codigo global se ejecuta en un entorno reducido.(detallar más)
+El valor de this no esta definido en la myoria de los contextos QML.
+
+Lugares donde podemos insertar javascript en un archivo QML
+
+El cuerpo de las propiedades bindings
+El cuerpo de los controladores de señales
+La definicion de metodos
+En archivos .js
