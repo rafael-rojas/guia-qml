@@ -27,3 +27,6 @@ https://projects.kde.org/projects/kde/workspace/breeze/repository/revisions/mast
 
 javascript en docuemtnos qml
 http://doc.qt.io/qt-5/qtqml-javascript-expressions.html
+
+primeros pasos con sphinx
+http://sphinx-doc.org/tutorial.html
