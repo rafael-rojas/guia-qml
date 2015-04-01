@@ -135,3 +135,112 @@ y el plasmoide ya aparecera en añadir elementos graficos
     y volver a instalarlo con
 
     plasmapkg2 --install hello-world
+
+plasmapkg2
+==========
+
+Desarrollada por Aaron Seigo <aseigo@kde.org>, ``plasmapkg2`` es una herramienta para terminal que nos permite instalar, listar o eliminar paquetes de Plasma.
+
+Creando Plasmoides siguiendo el aspecto de Plasma
+=================================================
+
+En este apartado vamos a conocer los componentes que nos permitiran programar Plasmoides que siguen el aspecto del escritorio Plasma.
+
+.. warning::
+        A la hora de realizar Plasmoides que sigan el aspecto de Plasma es importante que tengas en cuenta algunas buenas practicas que recomienda David Edmunson en su blog:
+
+        * Evita usar tus propias fuentes y colores. Usa las que te proporciona el tema actual de Plasma.
+        * Evita usar el elemento ``Text`` de QML. En su lugar usa el elemento ``Label`` de los componentes de Plasma ya que este elemento es capaz de poner las fuentes correctas con el tamaño correcto automaticamente.
+        * No ajustes tamaños de fuente y estilos.
+        * En las cabeceras usa el elemento ``Heading`` de Plasma fijando el nivel apropiado para afectar al tamaño de fuente.
+        * Fija todas las animaciones a ``Theme.ShortAnimation`` o ``Theme.LongAnimation`` apropiadamente.
+        * No uses ``QtQuick.Controls`` directamente desde dentro de la vista principal del plasmoide.
+
+
+Componentes de Plasma
+=====================
+
+Los componentes de Plasma son el conjunto de widgets (artilugios) estandar de Plasma para utilizar en tus interfaces graficas de usuario QML. 
+
+.. note:.
+
+    La documentación de la API de estos componentes esenciales, se encuentra en:
+    http://api.kde.org/frameworks-api/frameworks5-apidocs/plasma-framework/html/plasmacomponents.html
+
+Los componentes se dividen en 5 grandes grupos:
+
+* Widgets
+* Contenedores
+* Menus
+* Listas
+* Barra de herramientas
+
+Widgets
+=======
+Input
+    * ``TextArea``: es una area de texto desplazable vertical y horizontalmente.
+    * ``TextField``: un campo de texto.
+    * ``CheckBox``: una caja de verificación con estados, marcada, desmarcada.
+    * ``RadioButton``: Consiste en un botón de selección y una linea de texto.
+    * ``Switch``: es un Checkbox pero con aspecto de interruptor.
+    * ``Slider``: es un slider interactivo.
+
+Botones
+    * ``Button``: es un botón con una etiqueta opcional y cuyo icono usa el tema actual de Plasma.
+    * ``ButtonColumn``: permite agrupar botones en una columna.
+    * ``ButtonRow``: permite agrupar botones en una fila.
+    * ``ToolButton``: botón de herramientas.
+
+Miscelanea
+    * ``BusyIndicator``: un indicador de ocupado simple, se usa para indicar que la duracion de una tarea es desconocida.
+    * ``ProgressBar``: Barra que indica el progreso de relización de una tarea cuya duración es conocida.
+    * ``Label``: proporciona textos autoamticamente ajustados al tema actual de plasma.
+
+    .. warning::
+            Usar siempre ``Label`` de los componentes de Plasma en sustitución de ``Text`` de los componentes básicos de QML cuando se programen plasmoides.
+
+
+Contenedores
+============
+Paginas
+    * ``Page``: Define el contenido de una pieza de la interfaz de usuario. Se usa conjuntamente con ``PageStack`` y ``TabGroup``. Su uso principal es crear plasmoides donde la pantalla entera consiste una serie de paginas intercambiables o desplazables una tras otra con el dedo o el ratón.
+    * ``PageOrientation``: NO HAY DOCUMENTACIÓN.
+    * ``PageStatus``: NO HAY DOCUMENTACIÓN.
+    * ``PageStack``: proporciona una navegación estilo pila.
+Dialogos
+    * Dialog
+    * DialogStatus
+    * CommonDialog
+    * QueryDialog
+    * SelectionDialog
+Tab bars
+    * TabBar
+    * TabButton
+    * TabGroup
+Miscelanea
+    * Sheet
+    * ScrollBar
+
+
+Menus
+=====
+
+    * Menu
+    * MenuItem
+    * ContextMenu
+
+Listas
+======
+
+
+    * ListItem
+    * Highlight
+    * SectionScroller
+
+Barra de herramientas
+=====================
+
+    * ToolBar
+    * ToolBarLayout
+
+
