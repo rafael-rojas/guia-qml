@@ -1,3 +1,0 @@
-Para visualizar rapidamente archivos qml usamos la herramienta qmlscene 
-
-qmlscene ruta/archivo.qml

@@ -1,0 +1,110 @@
+=====================
+QML básico
+=====================
+
+.. sectionauthor:: `rafael rojas <https://github.com/rafael-rojas>`_
+
+.. issues:: 4
+
+propiedades comunes de elementos qml
+-------------------------------------
+
+``id`` se suele usar para darle un nombre a referenciar
+
+propiedades de geometria
+
+* x posicion x
+* y posicion y
+* z posicion z
+* width ancho del elemento
+* height alto del elemento
+
+propiedades de gestión de Layout
+
+* anchors
+* margins 
+
+Key handling
+
+attached Key and KeyNavigation properties to control key handling and the input focus property to enable key handling in the first place
+
+Transformation
+
+scale and rotate transformation and the generic transform property list for x,y,z transformation and their transformOrigin point
+
+Visual 	
+opacity to control transparency, visible to show/hide elements, clip to restrain paint operations to the element boundary and smooth to enhance the rendering quality
+
+State definition 	
+states list property with the supported list of states and the current state property as also the transitions list property to animate state changes.
+
+.. note::
+
+    los tipos basicos que vienen con import Qtquick 2
+    http://doc.qt.io/qt-5/qmlbasictypes.html
+
+    sigo el apartado de http://qmlbook.github.io/en/ch04/index.html#basic-elements
+
+ELEMENTOS BASICOS
+-----------------
+
+ELEMENTOS VISUALES
+------------------
+
+Texto
+-----
+
+Se usa para mostrar un texto
+
+.. note::
+
+    Puedes usar el grupo de propiedades de fuente para modificar la fuente
+    
+    
+* elide
+* Wrapmode
+* style
+* styleColor
+
+.. warning::
+    El texto no tiene fondo
+
+propiedades
+	text en esta propiedad escribes el texto a mostrar
+
+	
+Rectangulo
+----------
+
+http://doc.qt.io/qt-5/qml-qtquick-rectangle.html
+
+propiedades
+
+    * antialiasing : se usa para que los bordes redondeados se vean bien
+    * border.width : ancho del borde
+    * border.color : color del borde
+    * color : color de relleno, el color por defecto es el blanco
+    * gradient : rellenar usando un gradiente
+    * radius : hacer los bordes redondeados
+
+.. warning::
+  Si defines la propiedad color y la propiedad gradiente, se usará el gradiente.
+
+.. note::
+  Si defines un color de borde y no quieres que el rectangulo tenga relleno puedes poner color a transparent
+
+ejemplo (sacado de la web)
+
+.. code-block:: qml
+
+    import QtQuick 2.0
+
+    Rectangle {
+	width: 100
+	height: 100
+	color: "red"
+	border.color: "black"
+	border.width: 5
+	radius: 10
+    }
+

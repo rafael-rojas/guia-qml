@@ -30,3 +30,10 @@ http://doc.qt.io/qt-5/qtqml-javascript-expressions.html
 
 primeros pasos con sphinx
 http://sphinx-doc.org/tutorial.html
+
+git facil
+http://rogerdudler.github.io/git-guide/index.es.html
+
+python-pip
+
+pip se hace usando sudo

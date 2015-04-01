@@ -1,3 +1,0 @@
-capitulo 4.1.0 y 4.1.1
-capitulo  6.3 vistas dinamicas, vista de lista y vista de rejilla
-capitulo 6.5.2 un modelo desde xml y 6.5.3 listas con secciones

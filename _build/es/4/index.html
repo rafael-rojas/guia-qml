@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. QML básico &mdash; documentación de guia-qml - 0.1</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="documentación de guia-qml - 0.1" href="../../index.html" />
+    <link rel="next" title="5. QML y Javascript" href="../5/index.html" />
+    <link rel="prev" title="3. Plasmoides" href="../3/index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="../5/index.html" title="5. QML y Javascript"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="../3/index.html" title="3. Plasmoides"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentación de guia-qml - 0.1</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="qml-basico">
+<h1>4. QML básico<a class="headerlink" href="#qml-basico" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="propiedades-comunes-de-elementos-qml">
+<h2>4.1. propiedades comunes de elementos qml<a class="headerlink" href="#propiedades-comunes-de-elementos-qml" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">id</span></code> se suele usar para darle un nombre a referenciar</p>
+<p>propiedades de geometria</p>
+<ul class="simple">
+<li>x posicion x</li>
+<li>y posicion y</li>
+<li>z posicion z</li>
+<li>width ancho del elemento</li>
+<li>height alto del elemento</li>
+</ul>
+<p>propiedades de gestión de Layout</p>
+<ul class="simple">
+<li>anchors</li>
+<li>margins</li>
+</ul>
+<p>Key handling</p>
+<p>attached Key and KeyNavigation properties to control key handling and the input focus property to enable key handling in the first place</p>
+<p>Transformation</p>
+<p>scale and rotate transformation and the generic transform property list for x,y,z transformation and their transformOrigin point</p>
+<p>Visual
+opacity to control transparency, visible to show/hide elements, clip to restrain paint operations to the element boundary and smooth to enhance the rendering quality</p>
+<p>State definition
+states list property with the supported list of states and the current state property as also the transitions list property to animate state changes.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>los tipos basicos que vienen con import Qtquick 2
+<a class="reference external" href="http://doc.qt.io/qt-5/qmlbasictypes.html">http://doc.qt.io/qt-5/qmlbasictypes.html</a></p>
+<p class="last">sigo el apartado de <a class="reference external" href="http://qmlbook.github.io/en/ch04/index.html#basic-elements">http://qmlbook.github.io/en/ch04/index.html#basic-elements</a></p>
+</div>
+</div>
+<div class="section" id="elementos-basicos">
+<h2>4.2. ELEMENTOS BASICOS<a class="headerlink" href="#elementos-basicos" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="elementos-visuales">
+<h2>4.3. ELEMENTOS VISUALES<a class="headerlink" href="#elementos-visuales" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="texto">
+<h2>4.4. Texto<a class="headerlink" href="#texto" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se usa para mostrar un texto</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Puedes usar el grupo de propiedades de fuente para modificar la fuente</p>
+</div>
+<ul class="simple">
+<li>elide</li>
+<li>Wrapmode</li>
+<li>style</li>
+<li>styleColor</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">El texto no tiene fondo</p>
+</div>
+<dl class="docutils">
+<dt>propiedades</dt>
+<dd>text en esta propiedad escribes el texto a mostrar</dd>
+</dl>
+</div>
+<div class="section" id="rectangulo">
+<h2>4.5. Rectangulo<a class="headerlink" href="#rectangulo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><a class="reference external" href="http://doc.qt.io/qt-5/qml-qtquick-rectangle.html">http://doc.qt.io/qt-5/qml-qtquick-rectangle.html</a></p>
+<p>propiedades</p>
+<blockquote>
+<div><ul class="simple">
+<li>antialiasing : se usa para que los bordes redondeados se vean bien</li>
+<li>border.width : ancho del borde</li>
+<li>border.color : color del borde</li>
+<li>color : color de relleno, el color por defecto es el blanco</li>
+<li>gradient : rellenar usando un gradiente</li>
+<li>radius : hacer los bordes redondeados</li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Si defines la propiedad color y la propiedad gradiente, se usará el gradiente.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Si defines un color de borde y no quieres que el rectangulo tenga relleno puedes poner color a transparent</p>
+</div>
+<p>ejemplo (sacado de la web)</p>
+<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.0</span>
+
+<span class="nx">Rectangle</span> <span class="p">{</span>
+    <span class="k">width:</span> <span class="mi">100</span>
+    <span class="k">height:</span> <span class="mi">100</span>
+    <span class="k">color:</span> <span class="s2">&quot;red&quot;</span>
+    <span class="k">border.color:</span> <span class="s2">&quot;black&quot;</span>
+    <span class="k">border.width:</span> <span class="mi">5</span>
+    <span class="k">radius:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. QML básico</a><ul>
+<li><a class="reference internal" href="#propiedades-comunes-de-elementos-qml">4.1. propiedades comunes de elementos qml</a></li>
+<li><a class="reference internal" href="#elementos-basicos">4.2. ELEMENTOS BASICOS</a></li>
+<li><a class="reference internal" href="#elementos-visuales">4.3. ELEMENTOS VISUALES</a></li>
+<li><a class="reference internal" href="#texto">4.4. Texto</a></li>
+<li><a class="reference internal" href="#rectangulo">4.5. Rectangulo</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="../3/index.html"
+                        title="capítulo anterior">3. Plasmoides</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="../5/index.html"
+                        title="próximo capítulo">5. QML y Javascript</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/es/4/index.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Introduzca los términos de búsqueda o un nombre de módulo, clase o función.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Rafael Rojas Perez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="../../_sources/es/4/index.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

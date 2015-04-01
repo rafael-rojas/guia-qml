@@ -20,6 +20,7 @@ Contents:
    es/4/index
    es/5/index
    es/6/index
+   es/recursos/index
 
 
 

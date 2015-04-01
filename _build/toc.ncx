@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="3"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>guia-qml</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>Guia QML</text>
+      </navLabel>
+      <content src="index.html" />
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Meet Qt 5</text>
+      </navLabel>
+      <content src="es/1/index.html" />
+      <navPoint id="navPoint3" playOrder="2">
+        <navLabel>
+          <text>Meet Qt 5</text>
+        </navLabel>
+        <content src="es/1/index.html" />
+      </navPoint>
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>Preface</text>
+        </navLabel>
+        <content src="es/1/index.html#preface" />
+        <navPoint id="navPoint5" playOrder="3">
+          <navLabel>
+            <text>Preface</text>
+          </navLabel>
+          <content src="es/1/index.html#preface" />
+        </navPoint>
+        <navPoint id="navPoint6" playOrder="4">
+          <navLabel>
+            <text>Qt5 Focus</text>
+          </navLabel>
+          <content src="es/1/index.html#qt5-focus" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint7" playOrder="5">
+        <navLabel>
+          <text>Qt5 Introduction</text>
+        </navLabel>
+        <content src="es/1/index.html#qt5-introduction" />
+        <navPoint id="navPoint8" playOrder="5">
+          <navLabel>
+            <text>Qt5 Introduction</text>
+          </navLabel>
+          <content src="es/1/index.html#qt5-introduction" />
+        </navPoint>
+        <navPoint id="navPoint9" playOrder="6">
+          <navLabel>
+            <text>Qt Quick</text>
+          </navLabel>
+          <content src="es/1/index.html#qt-quick" />
+        </navPoint>
+        <navPoint id="navPoint10" playOrder="7">
+          <navLabel>
+            <text>Digesting an User Interface</text>
+          </navLabel>
+          <content src="es/1/index.html#digesting-an-user-interface" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint11" playOrder="8">
+        <navLabel>
+          <text>Qt Building Blocks</text>
+        </navLabel>
+        <content src="es/1/index.html#qt-building-blocks" />
+        <navPoint id="navPoint12" playOrder="8">
+          <navLabel>
+            <text>Qt Building Blocks</text>
+          </navLabel>
+          <content src="es/1/index.html#qt-building-blocks" />
+        </navPoint>
+        <navPoint id="navPoint13" playOrder="9">
+          <navLabel>
+            <text>Qt Modules</text>
+          </navLabel>
+          <content src="es/1/index.html#qt-modules" />
+        </navPoint>
+        <navPoint id="navPoint14" playOrder="10">
+          <navLabel>
+            <text>Supported Platforms</text>
+          </navLabel>
+          <content src="es/1/index.html#supported-platforms" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint15" playOrder="11">
+        <navLabel>
+          <text>Qt Project</text>
+        </navLabel>
+        <content src="es/1/index.html#id1" />
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

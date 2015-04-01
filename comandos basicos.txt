@@ -1,0 +1,10 @@
+git branch
+git branch -a
+git checkout -b borrador origin/borrador
+git pull --all
+
+sudo apt-get install python-pip
+
+sudo pip install -U sphinx
+
+sphinx-build -b html guia-qml guia-qml/_build
