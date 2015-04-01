@@ -10,7 +10,7 @@ Plasmoides
 
 .. note::
 
-    El codigo fuente de este capitulo se encuentra en `assets folder <../assets>`_.
+    El codigo fuente de este capitulo se encuentra en `la carpeta fuentes <../fuentes>`_.
 
 
 Creando un plasmoide
@@ -18,6 +18,7 @@ Creando un plasmoide
 
 .. issues:: 3
 
+Vamos a crear un pequeño plasmoide que mostrara el tipico mensaje de todos los primeros programas hechos en programación: "Hola mundo". Este plasmoide nos ayudará a comenzar a programar con QML de una forma rapida.
 
 
 
@@ -32,7 +33,7 @@ Hola Mundo
     Seguiremos las instrucciones de:
     http://blog.davidedmundson.co.uk/node/89
 
-Creamos la estructura del plasmoide para ello cremos una carpeta hello-world para el plasmoide y cremos los archivos:
+Creamos la estructura del plasmoide para ello cremos una carpeta hello-world para el plasmoide y creamos los archivos:
 
 .. code-block::
 
@@ -50,7 +51,7 @@ cambiamos el autor, el email y el nombre por ejemplo
     [Desktop Entry]
     Encoding=UTF-8
     Name=Tutorial
-    Comment=Tutoial on getting started with Plasma 5 plasmoids .
+    Comment=Nuestro primer plasmoide.
     Type=Service
     X-KDE-ParentApp=
     X-KDE-PluginInfo-Author=Rafa
@@ -91,12 +92,12 @@ El plasmoide estara en la categoria Online Services.
 
 .. warning::
 
-    Si pones un nombre que no esta en la lista o si te equivocas al escribir el nombre aparecera una nueva categoria y tu plasmoide estara en ella
-    Tienes que poner los nombres en ingles, en cualquier otro idioma creara una categoria nueva
+    Si pones un nombre que no esta en la lista o si te equivocas al escribir el nombre aparecera una nueva categoria y tu plasmoide estara en ella.
+    Tienes que poner los nombres en ingles, en cualquier otro idioma creara una categoria nueva.
 
 .. note::
 
-    En la url ``https://techbase.kde.org/Projects/Plasma/PIG`` en Category Names se explican las diferentes categorias disponibles para usar.
+    En la url ``https://techbase.kde.org/Projects/Plasma/PIG`` en el apartado ``Category Names`` se explican las diferentes categorias disponibles para usar.
 
 A continuacion pasamos a hacer la interfaz
 modificamos el archivo ``main.qml`` y pegamos el contenido del tutorial
@@ -106,10 +107,10 @@ modificamos el archivo ``main.qml`` y pegamos el contenido del tutorial
     import QtQuick 2.0
 
     Item {
-	Text {
-	    anchors.centerIn: parent
-	    text: "Hola mundo en Plasma 5";
-	}
+    	Text {
+    	    anchors.centerIn: parent
+    	    text: "Hola mundo en Plasma 5";
+    	}
     }
     
     
@@ -117,8 +118,7 @@ modificamos el archivo ``main.qml`` y pegamos el contenido del tutorial
 Ya tenemos un plasmoide listo para construir.
 
 
-Procedemos a instalarlo
-desde la carpeta donde se encuentra nuestra carpeta hello-world hacemos
+Procedemos a instalarlo desde la carpeta raiz donde se encuentra incluida nuestra carpeta hello-world hacemos
 
 .. code-block:: shell
 
