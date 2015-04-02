@@ -37,9 +37,3 @@ http://rogerdudler.github.io/git-guide/index.es.html
 python-pip
 
 pip se hace usando sudo
-
-editores de texto para windows
-http://hipertextual.com/archivo/2013/10/mejores-editores-de-texto-para-desarrolladores/
-
-android apps en ubuntu
-http://www.omgubuntu.co.uk/2014/09/install-android-apps-ubuntu-archon

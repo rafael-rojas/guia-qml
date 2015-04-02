@@ -58,10 +58,11 @@
 <h1>3. Plasmoides<a class="headerlink" href="#plasmoides" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">El codigo fuente de este capitulo se encuentra en <a class="reference external" href="../assets">assets folder</a>.</p>
+<p class="last">El codigo fuente de este capitulo se encuentra en <a class="reference external" href="../fuentes">la carpeta fuentes</a>.</p>
 </div>
 <div class="section" id="creando-un-plasmoide">
 <h2>3.1. Creando un plasmoide<a class="headerlink" href="#creando-un-plasmoide" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Vamos a crear un pequeño plasmoide que mostrara el tipico mensaje de todos los primeros programas hechos en programación: &#8220;Hola mundo&#8221;. Este plasmoide nos ayudará a comenzar a programar con QML de una forma rapida.</p>
 </div>
 <div class="section" id="hola-mundo">
 <h2>3.2. Hola Mundo<a class="headerlink" href="#hola-mundo" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -70,13 +71,13 @@
 <p class="last">Seguiremos las instrucciones de:
 <a class="reference external" href="http://blog.davidedmundson.co.uk/node/89">http://blog.davidedmundson.co.uk/node/89</a></p>
 </div>
-<p>Creamos la estructura del plasmoide para ello cremos una carpeta hello-world para el plasmoide y cremos los archivos:</p>
+<p>Creamos la estructura del plasmoide para ello cremos una carpeta hello-world para el plasmoide y creamos los archivos:</p>
 <p>Una vez ya tenemos toda la estructura creada, siguiendo el tutorial, introducimos el contenido al archivo <code class="docutils literal"><span class="pre">.desktop</span></code> dentro del archivo metadata.desktop</p>
 <p>cambiamos el autor, el email y el nombre por ejemplo</p>
 <div class="highlight-desktop"><div class="highlight"><pre>[Desktop Entry]
 Encoding=UTF-8
 Name=Tutorial
-Comment=Tutoial on getting started with Plasma 5 plasmoids .
+Comment=Nuestro primer plasmoide.
 Type=Service
 X-KDE-ParentApp=
 X-KDE-PluginInfo-Author=Rafa
@@ -115,12 +116,12 @@ X-KDE-PluginInfo-Category=Windows and Tasks
 <p>El plasmoide estara en la categoria Online Services.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Advertencia</p>
-<p class="last">Si pones un nombre que no esta en la lista o si te equivocas al escribir el nombre aparecera una nueva categoria y tu plasmoide estara en ella
-Tienes que poner los nombres en ingles, en cualquier otro idioma creara una categoria nueva</p>
+<p class="last">Si pones un nombre que no esta en la lista o si te equivocas al escribir el nombre aparecera una nueva categoria y tu plasmoide estara en ella.
+Tienes que poner los nombres en ingles, en cualquier otro idioma creara una categoria nueva.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">En la url <code class="docutils literal"><span class="pre">https://techbase.kde.org/Projects/Plasma/PIG</span></code> en Category Names se explican las diferentes categorias disponibles para usar.</p>
+<p class="last">En la url <code class="docutils literal"><span class="pre">https://techbase.kde.org/Projects/Plasma/PIG</span></code> en el apartado <code class="docutils literal"><span class="pre">Category</span> <span class="pre">Names</span></code> se explican las diferentes categorias disponibles para usar.</p>
 </div>
 <p>A continuacion pasamos a hacer la interfaz
 modificamos el archivo <code class="docutils literal"><span class="pre">main.qml</span></code> y pegamos el contenido del tutorial</p>
@@ -135,8 +136,7 @@ modificamos el archivo <code class="docutils literal"><span class="pre">main.qml
 </pre></div>
 </div>
 <p>Ya tenemos un plasmoide listo para construir.</p>
-<p>Procedemos a instalarlo
-desde la carpeta donde se encuentra nuestra carpeta hello-world hacemos</p>
+<p>Procedemos a instalarlo desde la carpeta raiz donde se encuentra incluida nuestra carpeta hello-world hacemos</p>
 <div class="highlight-shell"><div class="highlight"><pre>plasmapkg2 --install hello-world
 </pre></div>
 </div>
@@ -148,6 +148,136 @@ desde la carpeta donde se encuentra nuestra carpeta hello-world hacemos</p>
 <p>y volver a instalarlo con</p>
 <p class="last">plasmapkg2 &#8211;install hello-world</p>
 </div>
+</div>
+<div class="section" id="plasmapkg2">
+<h2>3.3. plasmapkg2<a class="headerlink" href="#plasmapkg2" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Desarrollada por Aaron Seigo &lt;<a class="reference external" href="mailto:aseigo&#37;&#52;&#48;kde&#46;org">aseigo<span>&#64;</span>kde<span>&#46;</span>org</a>&gt;, <code class="docutils literal"><span class="pre">plasmapkg2</span></code> es una herramienta para terminal que nos permite instalar, listar o eliminar paquetes de Plasma.</p>
+</div>
+<div class="section" id="creando-plasmoides-siguiendo-el-aspecto-de-plasma">
+<h2>3.4. Creando Plasmoides siguiendo el aspecto de Plasma<a class="headerlink" href="#creando-plasmoides-siguiendo-el-aspecto-de-plasma" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este apartado vamos a conocer los componentes que nos permitiran programar Plasmoides que siguen el aspecto del escritorio Plasma.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p>A la hora de realizar Plasmoides que sigan el aspecto de Plasma es importante que tengas en cuenta algunas buenas practicas que recomienda David Edmunson en su blog:</p>
+<ul class="last simple">
+<li>Evita usar tus propias fuentes y colores. Usa las que te proporciona el tema actual de Plasma.</li>
+<li>Evita usar el elemento <code class="docutils literal"><span class="pre">Text</span></code> de QML. En su lugar usa el elemento <code class="docutils literal"><span class="pre">Label</span></code> de los componentes de Plasma ya que este elemento es capaz de poner las fuentes correctas con el tamaño correcto automaticamente.</li>
+<li>No ajustes tamaños de fuente y estilos.</li>
+<li>En las cabeceras usa el elemento <code class="docutils literal"><span class="pre">Heading</span></code> de Plasma fijando el nivel apropiado para afectar al tamaño de fuente.</li>
+<li>Fija todas las animaciones a <code class="docutils literal"><span class="pre">Theme.ShortAnimation</span></code> o <code class="docutils literal"><span class="pre">Theme.LongAnimation</span></code> apropiadamente.</li>
+<li>No uses <code class="docutils literal"><span class="pre">QtQuick.Controls</span></code> directamente desde dentro de la vista principal del plasmoide.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="componentes-de-plasma">
+<h2>3.5. Componentes de Plasma<a class="headerlink" href="#componentes-de-plasma" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los componentes de Plasma son el conjunto de widgets (artilugios) estandar de Plasma para utilizar en tus interfaces graficas de usuario QML.</p>
+<p>Los componentes se dividen en 5 grandes grupos:</p>
+<ul class="simple">
+<li>Widgets</li>
+<li>Contenedores</li>
+<li>Menus</li>
+<li>Listas</li>
+<li>Barra de herramientas</li>
+</ul>
+</div>
+<div class="section" id="widgets">
+<h2>3.6. Widgets<a class="headerlink" href="#widgets" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="docutils">
+<dt>Input</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">TextArea</span></code>: es una area de texto desplazable vertical y horizontalmente.</li>
+<li><code class="docutils literal"><span class="pre">TextField</span></code>: un campo de texto.</li>
+<li><code class="docutils literal"><span class="pre">CheckBox</span></code>: una caja de verificación con estados, marcada, desmarcada.</li>
+<li><code class="docutils literal"><span class="pre">RadioButton</span></code>: Consiste en un botón de selección y una linea de texto.</li>
+<li><code class="docutils literal"><span class="pre">Switch</span></code>: es un Checkbox pero con aspecto de interruptor.</li>
+<li><code class="docutils literal"><span class="pre">Slider</span></code>: es un slider interactivo.</li>
+</ul>
+</dd>
+<dt>Botones</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">Button</span></code>: es un botón con una etiqueta opcional y cuyo icono usa el tema actual de Plasma.</li>
+<li><code class="docutils literal"><span class="pre">ButtonColumn</span></code>: permite agrupar botones en una columna.</li>
+<li><code class="docutils literal"><span class="pre">ButtonRow</span></code>: permite agrupar botones en una fila.</li>
+<li><code class="docutils literal"><span class="pre">ToolButton</span></code>: botón de herramientas.</li>
+</ul>
+</dd>
+<dt>Miscelanea</dt>
+<dd><ul class="first simple">
+<li><code class="docutils literal"><span class="pre">BusyIndicator</span></code>: un indicador de ocupado simple, se usa para indicar que la duracion de una tarea es desconocida.</li>
+<li><code class="docutils literal"><span class="pre">ProgressBar</span></code>: Barra que indica el progreso de relización de una tarea cuya duración es conocida.</li>
+<li><code class="docutils literal"><span class="pre">Label</span></code>: proporciona textos autoamticamente ajustados al tema actual de plasma.</li>
+</ul>
+<div class="last admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Usar siempre <code class="docutils literal"><span class="pre">Label</span></code> de los componentes de Plasma en sustitución de <code class="docutils literal"><span class="pre">Text</span></code> de los componentes básicos de QML cuando se programen plasmoides.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="contenedores">
+<h2>3.7. Contenedores<a class="headerlink" href="#contenedores" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="docutils">
+<dt>Paginas</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">Page</span></code>: Define el contenido de una pieza de la interfaz de usuario. Se usa conjuntamente con <code class="docutils literal"><span class="pre">PageStack</span></code> y <code class="docutils literal"><span class="pre">TabGroup</span></code>. Su uso principal es crear plasmoides donde la pantalla entera consiste una serie de paginas intercambiables o desplazables una tras otra con el dedo o el ratón.</li>
+<li><code class="docutils literal"><span class="pre">PageOrientation</span></code>: NO HAY DOCUMENTACIÓN.</li>
+<li><code class="docutils literal"><span class="pre">PageStatus</span></code>: NO HAY DOCUMENTACIÓN.</li>
+<li><code class="docutils literal"><span class="pre">PageStack</span></code>: proporciona una navegación estilo pila.</li>
+</ul>
+</dd>
+<dt>Dialogos</dt>
+<dd><ul class="first last simple">
+<li>Dialog</li>
+<li>DialogStatus</li>
+<li>CommonDialog</li>
+<li>QueryDialog</li>
+<li>SelectionDialog</li>
+</ul>
+</dd>
+<dt>Tab bars</dt>
+<dd><ul class="first last simple">
+<li>TabBar</li>
+<li>TabButton</li>
+<li>TabGroup</li>
+</ul>
+</dd>
+<dt>Miscelanea</dt>
+<dd><ul class="first last simple">
+<li>Sheet</li>
+<li>ScrollBar</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="menus">
+<h2>3.8. Menus<a class="headerlink" href="#menus" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Menu</li>
+<li>MenuItem</li>
+<li>ContextMenu</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="listas">
+<h2>3.9. Listas<a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>ListItem</li>
+<li>Highlight</li>
+<li>SectionScroller</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="barra-de-herramientas">
+<h2>3.10. Barra de herramientas<a class="headerlink" href="#barra-de-herramientas" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>ToolBar</li>
+<li>ToolBarLayout</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 
@@ -162,6 +292,14 @@ desde la carpeta donde se encuentra nuestra carpeta hello-world hacemos</p>
 <li><a class="reference internal" href="#">3. Plasmoides</a><ul>
 <li><a class="reference internal" href="#creando-un-plasmoide">3.1. Creando un plasmoide</a></li>
 <li><a class="reference internal" href="#hola-mundo">3.2. Hola Mundo</a></li>
+<li><a class="reference internal" href="#plasmapkg2">3.3. plasmapkg2</a></li>
+<li><a class="reference internal" href="#creando-plasmoides-siguiendo-el-aspecto-de-plasma">3.4. Creando Plasmoides siguiendo el aspecto de Plasma</a></li>
+<li><a class="reference internal" href="#componentes-de-plasma">3.5. Componentes de Plasma</a></li>
+<li><a class="reference internal" href="#widgets">3.6. Widgets</a></li>
+<li><a class="reference internal" href="#contenedores">3.7. Contenedores</a></li>
+<li><a class="reference internal" href="#menus">3.8. Menus</a></li>
+<li><a class="reference internal" href="#listas">3.9. Listas</a></li>
+<li><a class="reference internal" href="#barra-de-herramientas">3.10. Barra de herramientas</a></li>
 </ul>
 </li>
 </ul>
