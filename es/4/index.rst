@@ -18,8 +18,9 @@ Consideraciones iniciales sobre QML
 * Un archivo QML no es mas que una jerarquia  de elementos.
 * Cada archivo QML unicamente puede tener un elemento raiz, como ocurre en los archivos HTML.
 * Un elemento se define con su tipo seguido de un bloque entre llaves ``{ }``.
-* Dentro de ese bloque detallamos las propiedades de ese elemento u otros elementos.
-* LAs propiedades se definen en la forma ``nombre_propiedad : valor``.
+* Los elementos se especifican por su tipo, el nombre de su tipo siempre empieza escribiendose con una letra mayuscula.
+* Dentro de ese bloque detallamos las propiedades de ese elemento o añadimos otros elementos.
+* Las propiedades se definen en la forma ``nombre_propiedad : valor`` el nombre de la propiedad seguido de dos puntos y su valor.
 * Los elementos se pueden anidar, un elemento padre puede tener elementos hijos.
 * Los elementos hijos son aquellos que se definen dentro del bloque ``{ }`` del padre.
 * Los elementos hijos pueden tener elementos hermanos. 
@@ -29,7 +30,7 @@ Consideraciones iniciales sobre QML
     Es importante comprender que existen elementos padres, hijos y hermanos. Debido a como se verá mas adelante existen grupos de propiedades comunes a todos los elementos, como las propiedades ``anchors``, que se aplican con respecto a los elementos padre y hermanos de un elemento.
     
 * Se puede acceder al elemento padre de un elemento con la palabra clave ``parent``.
-* Los comentarios se hacen utilizando ``//`` para un unica linea y ``/* */`` para multiples lienas, igual que en C,C++ y Javascript.
+* Los comentarios se hacen utilizando ``//`` para un unica linea y ``/* */`` para multiples lineas, igual que en C,C++ y Javascript.
 
 Un ejemplo de archivo QML 
 =========================
@@ -44,13 +45,52 @@ En este caso y de forma general cuando se desean utilizar los elementos proporci
 
 Esto nos permite definir root como un elemento de tipo Rectangle, el tipo Rectangle es un elemento definido en el modulo QtQuick. Sin importar dicho modulo, el tipo Rectangle será desconocido para nuestro programa.
 
-;
 
-definir elementos propios
+Las propiedades se pueden especificar una por linea en cuyo caso no añadimos ningún caracter al final de la linea. 
 
-que pasa si no importas QtQuick
+.. code-block::
+        color: "#D8D8D8"
 
-Los elementos hijos heredan el sistema de coordenadas del padre, las coordenadas x e y son siempre relativas al padre
+O se pueden escribir varias propiedades en una misma linea como ocurre en el ejemplo anterior:
+
+.. code-block::
+        width: 120; height: 240
+
+En este caso debemos separar cada propiedad con un ";".
+
+Falta ejemplo.
+
+Expresiones
+===========
+
+http://doc.qt.io/qt-4.8/qmlsyntax.html
+guia JavaScript https://developer.mozilla.org/en/JavaScript/Guide
+
+A las propiedades ademas de asignar valores, podemos asignar expresiones escritas en JavaScript:
+
+.. code-block::
+       Rotación {
+        angulo: 360 * 3
+        } 
+
+Estas expresiones pueden incluir referencias a otros elementos y propiedades, en cuyo caso se establece un enlace. Si el valor de la expresión cambia, la propiedad que ha sido enlazada cambia tambien su valor.
+
+.. note::
+        Para hacer referencia a un elemento concreto se usa el valor de su propiedad ``id``.
+
+
+
+
+
+
+
+Que pasa si no importas QtQuick
+-------------------------------
+
+Situación
+----------
+
+Los elementos hijos heredan el sistema de coordenadas del padre, las coordenadas x e y son siempre relativas al padre.
 
 Propiedades comunes de elementos QML
 -------------------------------------
@@ -128,7 +168,8 @@ Existen las siguientes propiedades:
 Key handling
 ============
 
-attached Key and KeyNavigation properties to control key handling and the input focus property to enable key handling in the first place
+* attached Key and KeyNavigation properties to control key handling and 
+* the input focus property to enable key handling in the first place
 
 Transformation
 ==============
@@ -137,14 +178,18 @@ scale and rotate transformation and the generic transform property list for x,y,
 
 Visual
 ======
-opacity to control transparency, visible to show/hide elements, clip to restrain paint operations to the element boundary and smooth to enhance the rendering quality
+* ``opacity`` para controlar el nivel de transparecncia. 
+* ``visible`` para mostrar/ocultar elementos. 
+* ``clip`` to restrain paint operations to the element boundary and 
+* ``smooth`` para mejorar la calidad de renderizado.
 
     * antialiasing se usa para decidir si el elemento usa antialiasing o no.
 
     .. note ::
             El antialiasing elimina el efecto estético desagradable de líneas escalonadas que aparecen en un gráfico o texto con aliasing.
 
-State definition 	
+State definition
+================ 	
 states list property with the supported list of states and the current state property as also the transitions list property to animate state changes.
 
 .. note::
@@ -155,6 +200,16 @@ states list property with the supported list of states and the current state pro
     http://doc.qt.io/qt-5/qml-qtquick-item.html#anchors.baseline-prop
 
     sigo el apartado de http://qmlbook.github.io/en/ch04/index.html#basic-elements
+
+Definir tipos de elementos propios
+----------------------------------
+Puedes definir tus propios tipos de elementos, añadiendole una o varias de las anteriores propiedades comunes a todos los elementos. Nuevas propiedades con valores o expresiones, o incluso añadirle nuevos elementos o elementos ya existentes.
+
+
+Visualizar tu interfaz QML
+--------------------------
+qmlscene
+
 
 ELEMENTOS BASICOS
 -----------------
