@@ -1,6 +1,7 @@
  
 // M1>>
-import QtQuick 2.0
+import QtQuick 2.0 
+//importamos modulo QtQuick 2.0
 
     // Elemento rectangulo, en este caso es el elemento raíz
     Rectangle {

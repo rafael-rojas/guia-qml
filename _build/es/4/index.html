@@ -56,18 +56,61 @@
             
   <div class="section" id="qml-basico">
 <h1>4. QML básico<a class="headerlink" href="#qml-basico" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="sintaxis-de-qml">
-<h2>4.1. Sintaxis de QML<a class="headerlink" href="#sintaxis-de-qml" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>QML es un lenguaje declarativo que se usa para describir la interfaz grafica de tu aplicación. QML describe el aspecto y el comportamiento de la misma. La interfaz se divide en elementos mas pequeños que se combinan con componentes.
-Así pues un archivo QML no es mas que una descripción detallada de como quieres que sean los elementos que componen tu programa. Esta descripción puede enriquecerse para que proporcione una logica mas compleja utilizando el lenguaje de programación Javascript.</p>
-<div class="section" id="consideraciones-iniciales-sobre-qml">
-<h3>4.1.1. Consideraciones iniciales sobre QML<a class="headerlink" href="#consideraciones-iniciales-sobre-qml" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="que-es-qml">
+<h2>4.1. ¿Qué es QML?<a class="headerlink" href="#que-es-qml" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>QML es un lenguaje declarativo que se usa para describir la interfaz grafica de tu aplicación.</p>
+<p>QML describe el aspecto y el comportamiento de la misma. La interfaz se divide en elementos mas pequeños que se combinan con componentes.</p>
+<p>Así pues un archivo QML no es mas que una descripción detallada de como quieres que sean los elementos que componen tu programa. Esta descripción puede enriquecerse para que proporcione una logica mas compleja utilizando el lenguaje de programación Javascript.</p>
+</div>
+<div class="section" id="archivos-qml">
+<h2>4.2. Archivos .qml<a class="headerlink" href="#archivos-qml" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Guardamos nuestra interfaz en la forma de archivos de texto con extensión .qml.</p>
+</div>
+<div class="section" id="visualizar-rapidamente-tu-interfaz-qml">
+<h2>4.3. Visualizar rapidamente tu interfaz QML<a class="headerlink" href="#visualizar-rapidamente-tu-interfaz-qml" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A la hora de diseñar la interfaz grafica de tu aplicacion o programa, Qt proporciona una herramienta para previsualizar el aspecto de tus archivos QML que es muy util a la hora de diseñar.</p>
+<p>Esta herramienta es <code class="docutils literal"><span class="pre">qmlscene</span></code>.</p>
+<p>En Kubuntu puedes acceder a esta herramienta buscandola con</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>locate qmlscene
+</pre></div>
+</div>
+<p>y te devolvera la ubicación de la herramienta</p>
+<div class="highlight-shell"><div class="highlight"><pre>/usr/bin/qmlscene
+</pre></div>
+</div>
+<img alt="../../_images/qmlscene.png" src="../../_images/qmlscene.png" />
+<p>Aunque normalmente con escribir <code class="docutils literal"><span class="pre">qmlscene</span></code> en tu terminal ya podrás utilizarla.</p>
+<p>Tambiene puedes usar las teclas <code class="docutils literal"><span class="pre">Alt</span></code> + <code class="docutils literal"><span class="pre">F2</span></code> y escribir <code class="docutils literal"><span class="pre">qmlscene</span></code>, inmediatamente te saldra la opcion &#8220;Ejecutar qmlscene&#8221; pinchas sobre ella y ya podras ver el selector donde escoger tu archivo .qml a visualizar.</p>
+<img alt="../../_images/qmlscene_altf2.png" src="../../_images/qmlscene_altf2.png" />
+<p>Esta herramienta es un poco engorrosa de usar porque no recuerda el ultimo directorio que has utilizado y cada vez debes volver a ir a la carpeta donde tienes tus archivos QML. Es por esto que se recomienda usarla desde el directorio donde tengas los archivos qml a visualizar</p>
+<p>imagen</p>
+</div>
+<div class="section" id="un-ejemplo-de-archivo-qml">
+<h2>4.4. Un ejemplo de archivo QML<a class="headerlink" href="#un-ejemplo-de-archivo-qml" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Veamos un ejemplo sencillo de archivo QML:</p>
+<div class="literal-block-wrapper container" id="cuadrado">
+<div class="code-block-caption"><span class="caption-text">Ejemplo:</span><a class="headerlink" href="#cuadrado" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.0</span>
+    <span class="nx">Rectangle</span> <span class="p">{</span>
+	<span class="kd">id: cuadrado</span>
+	<span class="k">color:</span> <span class="s2">&quot;blue&quot;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Y se veria así en qmlscene:</p>
+<img alt="../../_images/cuadrado.png" src="../../_images/cuadrado.png" />
+</div>
+<div class="section" id="sintaxis-y-estructura-de-archivos-qml">
+<h2>4.5. Sintaxis y estructura de archivos QML<a class="headerlink" href="#sintaxis-y-estructura-de-archivos-qml" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Visto el ejemplo, vamos a ver cual es la sintaxis que se usa en los archivos QML.</p>
 <ul class="simple">
 <li>Un archivo QML no es mas que una jerarquia  de elementos.</li>
 <li>Cada archivo QML unicamente puede tener un elemento raiz, como ocurre en los archivos HTML.</li>
 <li>Un elemento se define con su tipo seguido de un bloque entre llaves <code class="docutils literal"><span class="pre">{</span> <span class="pre">}</span></code>.</li>
-<li>Dentro de ese bloque detallamos las propiedades de ese elemento u otros elementos.</li>
-<li>LAs propiedades se definen en la forma <code class="docutils literal"><span class="pre">nombre_propiedad</span> <span class="pre">:</span> <span class="pre">valor</span></code>.</li>
+<li>Los elementos se especifican por su tipo, el nombre de su tipo siempre empieza escribiendose con una letra mayuscula.</li>
+<li>Dentro de ese bloque detallamos las propiedades de ese elemento o añadimos otros elementos.</li>
+<li>Las propiedades se definen en la forma <code class="docutils literal"><span class="pre">nombre_propiedad</span> <span class="pre">:</span> <span class="pre">valor</span></code> el nombre de la propiedad seguido de dos puntos y su valor.</li>
 <li>Los elementos se pueden anidar, un elemento padre puede tener elementos hijos.</li>
 <li>Los elementos hijos son aquellos que se definen dentro del bloque <code class="docutils literal"><span class="pre">{</span> <span class="pre">}</span></code> del padre.</li>
 <li>Los elementos hijos pueden tener elementos hermanos.</li>
@@ -79,12 +122,13 @@ Así pues un archivo QML no es mas que una descripción detallada de como quiere
 </div>
 <ul class="simple">
 <li>Se puede acceder al elemento padre de un elemento con la palabra clave <code class="docutils literal"><span class="pre">parent</span></code>.</li>
-<li>Los comentarios se hacen utilizando <code class="docutils literal"><span class="pre">//</span></code> para un unica linea y <code class="docutils literal"><span class="pre">/*</span> <span class="pre">*/</span></code> para multiples lienas, igual que en C,C++ y Javascript.</li>
+<li>Los comentarios se hacen utilizando <code class="docutils literal"><span class="pre">//</span></code> para una unica linea y <code class="docutils literal"><span class="pre">/*</span> <span class="pre">*/</span></code> para multiples lineas, igual que en C,C++ y Javascript.</li>
 </ul>
-</div>
-<div class="section" id="un-ejemplo-de-archivo-qml">
-<h3>4.1.2. Un ejemplo de archivo QML<a class="headerlink" href="#un-ejemplo-de-archivo-qml" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.0</span>
+<div class="section" id="un-ejemplo-mas-elaborado-de-archivo-qml">
+<h3>4.5.1. Un ejemplo mas elaborado de archivo QML<a class="headerlink" href="#un-ejemplo-mas-elaborado-de-archivo-qml" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Veamos un ejemplo un poco mas complejo. En este caso tenemos un elemento de tipo rectangulo llamado root con unas propiedades de ancho, alto y color que es padre de un elemento de tipo imagen llamado rocket.</p>
+<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.0</span> 
+<span class="c1">//importamos modulo QtQuick 2.0</span>
 
     <span class="c1">// Elemento rectangulo, en este caso es el elemento raíz</span>
     <span class="nx">Rectangle</span> <span class="p">{</span>
@@ -109,30 +153,266 @@ Así pues un archivo QML no es mas que una descripción detallada de como quiere
     <span class="p">}</span>
 </pre></div>
 </div>
-<p>La sentencia <code class="docutils literal"><span class="pre">import</span></code> importa un modulo en una determinada versión.</p>
-<p>En este caso y de forma general cuando se desean utilizar los elementos proporcionados por defecto por Qt para realizar interfaces graficas de usuario (GUIs), importamos el modulo QtQuick 2.0 como juego inicial de elementos.</p>
-<p>Esto nos permite definir root como un elemento de tipo Rectangle, el tipo Rectangle es un elemento definido en el modulo QtQuick. Sin importar dicho modulo, el tipo Rectangle será desconocido para nuestro programa.</p>
-<p>;</p>
-<p>definir elementos propios</p>
-<p>que pasa si no importas QtQuick</p>
-<p>Los elementos hijos heredan el sistema de coordenadas del padre, las coordenadas x e y son siempre relativas al padre</p>
+<p>Al inicio del archivo tenemos la sentencia <code class="docutils literal"><span class="pre">import</span></code> que se encarga de importar un modulo en una determinada versión.</p>
+<p>En este caso y de forma general cuando se desean utilizar los elementos proporcionados por defecto por Qt para realizar interfaces graficas de usuario (GUIs), importamos el modulo QtQuick en su versión 2.0 para poder utilizar sus elementos predefinidos.</p>
+<p>Esto nos permite definir al elemento llamado root como un elemento de tipo Rectangle, el tipo Rectangle es un elemento definido en el modulo QtQuick. Sin importar dicho modulo, el tipo Rectangle será desconocido para nuestro programa.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>¿Qué ocurre si no importas el modulo QtQuick?</p>
+<ul class="last simple">
+<li>Si usas elementos de Qtquick</li>
+<li>Si no usas elementos de Qtquick</li>
+</ul>
+</div>
+</div>
+<div class="section" id="propiedades">
+<h3>4.5.2. Propiedades<a class="headerlink" href="#propiedades" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Como hemos visto las propiedades se definen con un par &lt;nombre&gt;: &lt;valor&gt;.</p>
+<p>Las propiedades se pueden especificar una por linea en cuyo caso no añadimos ningún caracter al final de la linea.</p>
+<div class="literal-block-wrapper container" id="linea-unica">
+<div class="code-block-caption"><span class="caption-text">Una linea, una propiedad</span><a class="headerlink" href="#linea-unica" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-qml"><div class="highlight"><pre><span class="k">color:</span> <span class="s2">&quot;#D8D8D8&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>O se pueden escribir varias propiedades en una misma linea como ocurre en el ejemplo anterior:</p>
+<div class="literal-block-wrapper container" id="linea-multiple">
+<div class="code-block-caption"><span class="caption-text">Una linea, dos propiedades</span><a class="headerlink" href="#linea-multiple" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-qml"><div class="highlight"><pre><span class="k">width:</span> <span class="mi">120</span><span class="p">;</span> <span class="k">height:</span> <span class="mi">240</span>
+</pre></div>
+</div>
+</div>
+<p>En este caso debemos separar cada propiedad con un &#8221;;&#8221;.</p>
+<div class="admonition important">
+<p class="first admonition-title">Importante</p>
+<p>Las propiedades tienen definido un tipo de datos para sus valores y solo aceptan valores que sean de ese mismo tipo de datos.</p>
+<p>Por ejemplo si una propiedad ha sido definida como que acepta numeros enteros los valores que se asignen a esa propiedad deberan ser de tipo entero.</p>
+<p class="last">Si a una propiedad que espera valores de tipo real le asignas un valor de tipo cadena obtendras un error:
+property int longitud: &#8220;verde&#8221; //error</p>
+</div>
+</div>
+<div class="section" id="tipos-de-valores-de-las-propiedades">
+<h3>4.5.3. Tipos de valores de las propiedades<a class="headerlink" href="#tipos-de-valores-de-las-propiedades" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><a class="reference external" href="http://developer.ubuntu.com/api/qml/sdk-1.0/QtQml.qtqml-syntax-objectattributes/#valid-property-values">http://developer.ubuntu.com/api/qml/sdk-1.0/QtQml.qtqml-syntax-objectattributes/#valid-property-values</a></p>
+<p>Existen dos tipos de valores que pueden asiganrse a una propiedad, valores estaticos y expresiones.</p>
+</div>
+<div class="section" id="valores-estaticos">
+<h3>4.5.4. Valores estaticos<a class="headerlink" href="#valores-estaticos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Son valores cuyo tipo coincide (o debe poderse convertir) con el tipo de valor que se le puede asignar a la propiedad.</p>
+<p><a class="reference external" href="http://developer.ubuntu.com/api/qml/sdk-1.0/QtQml.qtqml-typesystem-basictypes/">http://developer.ubuntu.com/api/qml/sdk-1.0/QtQml.qtqml-typesystem-basictypes/</a></p>
+<p>Los valores aceptan los siguientes tipos de datos basicos:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">tipo</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>int</td>
+<td>numeros enteros</td>
+</tr>
+<tr class="row-odd"><td>bool</td>
+<td>true o false</td>
+</tr>
+<tr class="row-even"><td>real</td>
+<td>numeros con un punto decimal</td>
+</tr>
+<tr class="row-odd"><td>double</td>
+<td>numeros con un punto decimal guardado con doble precisión</td>
+</tr>
+<tr class="row-even"><td>string</td>
+<td>cadena, una cadena de texto</td>
+</tr>
+<tr class="row-odd"><td>url</td>
+<td>localizador de recursos**</td>
+</tr>
+<tr class="row-even"><td>list</td>
+<td>lista, una lista de elementos QML</td>
+</tr>
+<tr class="row-odd"><td>var</td>
+<td>una variable, normalmente un tipo de propiedad generico**</td>
+</tr>
+<tr class="row-even"><td>enumeration</td>
+<td>una enumeracion de nombres</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Los valores de tipo cadena deben ir entrecomillados con comillas dobles o con comillas simples.</p>
+</div>
+<p>Ademas de los tipos de datos basicos de QML, los modulos de QML proporcionan otros tipos de datos mas complejos:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">tipo</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>date</td>
+<td>tipo fecha</td>
+</tr>
+<tr class="row-odd"><td>time</td>
+<td>tipo hora</td>
+</tr>
+<tr class="row-even"><td>point</td>
+<td>tipo punto, un valor con coordenadas x e y como atributos</td>
+</tr>
+<tr class="row-odd"><td>size</td>
+<td>tipo tamaño, un valor con ancho e alto como atributos (width, height)</td>
+</tr>
+<tr class="row-even"><td>rect</td>
+<td>un valor con atributos x,y,width y height**</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Para poder usar estos tipos de datos debes importar los modulos correspondientes que los proporcionan.</p>
+</div>
+<p>probar</p>
+</div>
+<div class="section" id="expresiones">
+<h3>4.5.5. Expresiones<a class="headerlink" href="#expresiones" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><a class="reference external" href="http://doc.qt.io/qt-4.8/qmlsyntax.html">http://doc.qt.io/qt-4.8/qmlsyntax.html</a>
+guia JavaScript <a class="reference external" href="https://developer.mozilla.org/en/JavaScript/Guide">https://developer.mozilla.org/en/JavaScript/Guide</a></p>
+<p>A las propiedades ademas de asignar valores, podemos asignar expresiones escritas en JavaScript:</p>
+<div class="highlight-qml"><div class="highlight"><pre>Rotación {
+  //expresión con un producto
+  angulo: 360 * 3
+}
+</pre></div>
+</div>
+<p>El resultado de las expresiones debe coincidir con el tipo de dato esperado por la propiedad (o debe poderse convertir).</p>
+<p>Estas expresiones pueden incluir referencias a otros elementos y propiedades, en cuyo caso se establece un enlace. Si el valor de la expresión cambia, la propiedad que ha sido enlazada cambia tambien su valor.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Para hacer referencia a un elemento concreto se usa el valor de su propiedad <code class="docutils literal"><span class="pre">id</span></code>, que tiene que estar definida.</p>
+</div>
 </div>
 </div>
 <div class="section" id="propiedades-comunes-de-elementos-qml">
-<h2>4.2. Propiedades comunes de elementos QML<a class="headerlink" href="#propiedades-comunes-de-elementos-qml" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">id</span></code> se suele usar para asignar un identificador a un elemento y poder referenciarlo.</p>
-<div class="section" id="propiedades-de-geometria">
-<h3>4.2.1. Propiedades de geometria<a class="headerlink" href="#propiedades-de-geometria" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>4.6. Propiedades comunes de elementos QML<a class="headerlink" href="#propiedades-comunes-de-elementos-qml" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Vamos a ver las propiedades que son comunes a todos los tipos de elementos de QML.</p>
+<p>Es decir, puedes usar estas propiedades en todos los elementos de QML.</p>
+<div class="section" id="propiedad-identificador">
+<h3>4.6.1. Propiedad identificador<a class="headerlink" href="#propiedad-identificador" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">x</span></code> es la posicion x del elemento.</li>
-<li><code class="docutils literal"><span class="pre">y</span></code> es la posicion y del elemento.</li>
-<li><code class="docutils literal"><span class="pre">z</span></code> es la posicion z del elemento.</li>
+<li><code class="docutils literal"><span class="pre">id</span></code> se usa para asignar un identificador a un elemento y poder referenciarlo.</li>
+</ul>
+<div class="admonition important">
+<p class="first admonition-title">Importante</p>
+<p>Un <code class="docutils literal"><span class="pre">id</span></code> debe usarse unicamente para referenciar elementos dentro de un mismo archivo. Si quieres hacer referencia a elementos externos es mejor usar otros mecanismos, como definir propiedades en el elemento raiz de tu archivo QML.</p>
+<p class="last">De lo contrario y debido al mecanismo dinamyc-scoping que proporciona QML puedes acabar referenciando elementos equivocados.</p>
+</div>
+<div class="literal-block-wrapper container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Ejemplo:</span><a class="headerlink" href="#id1" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.0</span>
+    <span class="nx">Rectangle</span> <span class="p">{</span>
+	<span class="kd">id: cuadrado</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="propiedades-de-geometria">
+<h3>4.6.2. Propiedades de geometria<a class="headerlink" href="#propiedades-de-geometria" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
 <li><code class="docutils literal"><span class="pre">width</span></code> es el ancho del elemento.</li>
 <li><code class="docutils literal"><span class="pre">height</span></code> es el alto del elemento.</li>
 </ul>
 </div>
+<div class="section" id="propiedades-de-situacion">
+<h3>4.6.3. Propiedades de situación<a class="headerlink" href="#propiedades-de-situacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">x</span></code> es la posicion sobre el eje horizontal empezando desde la esquina superior izquierda del elemento.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">En los ejemplos fijate unicamente en las propiedades comunes a todos los elementos, los elementos que aparecen en los ejemplos de tipo Rectangle u otros tipos y sus propiedades especificas los veremos en profundidad mas adelante.</p>
+</div>
+<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.0</span>
+
+<span class="nx">Rectangle</span> <span class="p">{</span>
+    <span class="kd">id: fondo</span>
+    
+    <span class="k">color:</span> <span class="s2">&quot;yellow&quot;</span>
+    
+    <span class="nx">Rectangle</span> <span class="p">{</span>
+	<span class="kd">id: cuadrado</span>
+
+	<span class="k">width:</span> <span class="mi">100</span><span class="p">;</span> <span class="k">height:</span> <span class="mi">100</span>
+
+	<span class="k">color:</span> <span class="s2">&quot;blue&quot;</span>
+	
+	<span class="k">x:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../../_images/cuadrado_x.png" src="../../_images/cuadrado_x.png" />
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">y</span></code> es la posicion sobre el eje vertical empezando desde la esquina superior izquierda del elemento.</li>
+</ul>
+<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.0</span>
+
+<span class="nx">Rectangle</span> <span class="p">{</span>
+    <span class="kd">id: fondo</span>
+    
+    <span class="k">color:</span> <span class="s2">&quot;yellow&quot;</span>
+    
+    <span class="nx">Rectangle</span> <span class="p">{</span>
+	<span class="kd">id: cuadrado</span>
+
+	<span class="k">width:</span> <span class="mi">100</span><span class="p">;</span> <span class="k">height:</span> <span class="mi">100</span>
+
+	<span class="k">color:</span> <span class="s2">&quot;blue&quot;</span>
+	
+	<span class="k">y:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../../_images/cuadrado_y.png" src="../../_images/cuadrado_y.png" />
+<p>Ambas propiedades combinadas:</p>
+<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.0</span>
+
+<span class="nx">Rectangle</span> <span class="p">{</span>
+    <span class="kd">id: fondo</span>
+    
+    <span class="k">color:</span> <span class="s2">&quot;yellow&quot;</span>
+    
+    <span class="nx">Rectangle</span> <span class="p">{</span>
+	<span class="kd">id: cuadrado</span>
+
+	<span class="k">width:</span> <span class="mi">100</span><span class="p">;</span> <span class="k">height:</span> <span class="mi">100</span>
+
+	<span class="k">color:</span> <span class="s2">&quot;blue&quot;</span>
+	
+	<span class="k">x:</span> <span class="mi">10</span><span class="p">;</span> <span class="k">y:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../../_images/cuadrado_xy.png" src="../../_images/cuadrado_xy.png" />
+<div class="admonition important">
+<p class="first admonition-title">Importante</p>
+<p class="last">Los elementos hijos heredan el sistema de coordenadas del padre, las coordenadas x e y son siempre relativas al padre.</p>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">z</span></code> segun este valor un elemento se dibujará por encima o por debajo de otros elementos.</li>
+</ul>
+</div>
 <div class="section" id="propiedades-de-gestion-de-layout">
-<h3>4.2.2. Propiedades de gestión de Layout<a class="headerlink" href="#propiedades-de-gestion-de-layout" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>4.6.4. Propiedades de gestión de Layout<a class="headerlink" href="#propiedades-de-gestion-de-layout" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">anchors</span></code> son propiedades que nos permiten posicionar un elemento especificando su relación con otros elementos. Cada elemento tiene el siguiente conjunto de siete lineas de &#8220;posición relativa&#8221;:</li>
 </ul>
@@ -201,27 +481,50 @@ Así pues un archivo QML no es mas que una descripción detallada de como quiere
 </ul>
 </div>
 <div class="section" id="key-handling">
-<h3>4.2.3. Key handling<a class="headerlink" href="#key-handling" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>attached Key and KeyNavigation properties to control key handling and the input focus property to enable key handling in the first place</p>
+<h3>4.6.5. Key handling<a class="headerlink" href="#key-handling" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Key</span></code></li>
+<li><code class="docutils literal"><span class="pre">KeyNavigation</span></code> properties to control key handling and</li>
+<li><code class="docutils literal"><span class="pre">focus</span></code> property to enable key handling in the first place</li>
+</ul>
 </div>
-<div class="section" id="transformation">
-<h3>4.2.4. Transformation<a class="headerlink" href="#transformation" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>scale and rotate transformation and the generic transform property list for x,y,z transformation and their transformOrigin point</p>
+<div class="section" id="transformacion">
+<h3>4.6.6. Transformación<a class="headerlink" href="#transformacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">scale</span></code></li>
+<li><code class="docutils literal"><span class="pre">rotate</span></code></li>
+<li><code class="docutils literal"><span class="pre">transform</span></code> property list for x,y,z transformation</li>
+<li><code class="docutils literal"><span class="pre">transformOrigin</span></code> punto de</li>
+</ul>
 </div>
 <div class="section" id="visual">
-<h3>4.2.5. Visual<a class="headerlink" href="#visual" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>opacity to control transparency, visible to show/hide elements, clip to restrain paint operations to the element boundary and smooth to enhance the rendering quality</p>
+<h3>4.6.7. Visual<a class="headerlink" href="#visual" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">opacity</span></code> para controlar el nivel de transparencia.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">visible</span></code> para mostrar/ocultar elementos.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">clip</span></code> para restringir operaciones de dibujo al elemento frontera.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">smooth</span></code> para mejorar la calidad de renderizado.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">antialiasing</span></code> se usa para decidir si el elemento usa antialiasing o no.</p>
 <blockquote>
-<div><ul class="simple">
-<li>antialiasing se usa para decidir si el elemento usa antialiasing o no.</li>
-</ul>
-<div class="admonition note">
+<div><div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">El antialiasing elimina el efecto estético desagradable de líneas escalonadas que aparecen en un gráfico o texto con aliasing.</p>
 </div>
 </div></blockquote>
-<p>State definition
-states list property with the supported list of states and the current state property as also the transitions list property to animate state changes.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="definicion-de-estado">
+<h3>4.6.8. Definición de estado<a class="headerlink" href="#definicion-de-estado" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">states</span></code> list property with the supported list of states and the current</li>
+<li><code class="docutils literal"><span class="pre">state</span></code> property as also the</li>
+<li><code class="docutils literal"><span class="pre">transitions</span></code> list property to animate state changes.</li>
+</ul>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p>los tipos basicos que vienen con import Qtquick 2
@@ -232,13 +535,17 @@ states list property with the supported list of states and the current state pro
 </div>
 </div>
 </div>
+<div class="section" id="definir-tipos-de-elementos-propios">
+<h2>4.7. Definir tipos de elementos propios<a class="headerlink" href="#definir-tipos-de-elementos-propios" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Puedes definir tus propios tipos de elementos, añadiendole una o varias de las anteriores propiedades comunes a todos los elementos. Nuevas propiedades con valores o expresiones, o incluso añadirle nuevos elementos o elementos ya existentes.</p>
+</div>
 <div class="section" id="elementos-basicos">
-<h2>4.3. ELEMENTOS BASICOS<a class="headerlink" href="#elementos-basicos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>4.8. ELEMENTOS BASICOS<a class="headerlink" href="#elementos-basicos" title="Enlazar permanentemente con este título">¶</a></h2>
 </div>
 <div class="section" id="elementos-visuales">
-<h2>4.4. ELEMENTOS VISUALES<a class="headerlink" href="#elementos-visuales" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>4.9. ELEMENTOS VISUALES<a class="headerlink" href="#elementos-visuales" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="texto">
-<h3>4.4.1. Texto<a class="headerlink" href="#texto" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>4.9.1. Texto<a class="headerlink" href="#texto" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Se usa para mostrar un texto</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
@@ -260,7 +567,7 @@ states list property with the supported list of states and the current state pro
 </dl>
 </div>
 <div class="section" id="rectangulo">
-<h3>4.4.2. Rectangulo<a class="headerlink" href="#rectangulo" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>4.9.2. Rectangulo<a class="headerlink" href="#rectangulo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p><a class="reference external" href="http://doc.qt.io/qt-5/qml-qtquick-rectangle.html">http://doc.qt.io/qt-5/qml-qtquick-rectangle.html</a></p>
 <p>propiedades</p>
 <blockquote>
@@ -307,23 +614,34 @@ states list property with the supported list of states and the current state pro
   <h3><a href="../../index.html">Tabla de Contenidos</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4. QML básico</a><ul>
-<li><a class="reference internal" href="#sintaxis-de-qml">4.1. Sintaxis de QML</a><ul>
-<li><a class="reference internal" href="#consideraciones-iniciales-sobre-qml">4.1.1. Consideraciones iniciales sobre QML</a></li>
-<li><a class="reference internal" href="#un-ejemplo-de-archivo-qml">4.1.2. Un ejemplo de archivo QML</a></li>
+<li><a class="reference internal" href="#que-es-qml">4.1. ¿Qué es QML?</a></li>
+<li><a class="reference internal" href="#archivos-qml">4.2. Archivos .qml</a></li>
+<li><a class="reference internal" href="#visualizar-rapidamente-tu-interfaz-qml">4.3. Visualizar rapidamente tu interfaz QML</a></li>
+<li><a class="reference internal" href="#un-ejemplo-de-archivo-qml">4.4. Un ejemplo de archivo QML</a></li>
+<li><a class="reference internal" href="#sintaxis-y-estructura-de-archivos-qml">4.5. Sintaxis y estructura de archivos QML</a><ul>
+<li><a class="reference internal" href="#un-ejemplo-mas-elaborado-de-archivo-qml">4.5.1. Un ejemplo mas elaborado de archivo QML</a></li>
+<li><a class="reference internal" href="#propiedades">4.5.2. Propiedades</a></li>
+<li><a class="reference internal" href="#tipos-de-valores-de-las-propiedades">4.5.3. Tipos de valores de las propiedades</a></li>
+<li><a class="reference internal" href="#valores-estaticos">4.5.4. Valores estaticos</a></li>
+<li><a class="reference internal" href="#expresiones">4.5.5. Expresiones</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#propiedades-comunes-de-elementos-qml">4.2. Propiedades comunes de elementos QML</a><ul>
-<li><a class="reference internal" href="#propiedades-de-geometria">4.2.1. Propiedades de geometria</a></li>
-<li><a class="reference internal" href="#propiedades-de-gestion-de-layout">4.2.2. Propiedades de gestión de Layout</a></li>
-<li><a class="reference internal" href="#key-handling">4.2.3. Key handling</a></li>
-<li><a class="reference internal" href="#transformation">4.2.4. Transformation</a></li>
-<li><a class="reference internal" href="#visual">4.2.5. Visual</a></li>
+<li><a class="reference internal" href="#propiedades-comunes-de-elementos-qml">4.6. Propiedades comunes de elementos QML</a><ul>
+<li><a class="reference internal" href="#propiedad-identificador">4.6.1. Propiedad identificador</a></li>
+<li><a class="reference internal" href="#propiedades-de-geometria">4.6.2. Propiedades de geometria</a></li>
+<li><a class="reference internal" href="#propiedades-de-situacion">4.6.3. Propiedades de situación</a></li>
+<li><a class="reference internal" href="#propiedades-de-gestion-de-layout">4.6.4. Propiedades de gestión de Layout</a></li>
+<li><a class="reference internal" href="#key-handling">4.6.5. Key handling</a></li>
+<li><a class="reference internal" href="#transformacion">4.6.6. Transformación</a></li>
+<li><a class="reference internal" href="#visual">4.6.7. Visual</a></li>
+<li><a class="reference internal" href="#definicion-de-estado">4.6.8. Definición de estado</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#elementos-basicos">4.3. ELEMENTOS BASICOS</a></li>
-<li><a class="reference internal" href="#elementos-visuales">4.4. ELEMENTOS VISUALES</a><ul>
-<li><a class="reference internal" href="#texto">4.4.1. Texto</a></li>
-<li><a class="reference internal" href="#rectangulo">4.4.2. Rectangulo</a></li>
+<li><a class="reference internal" href="#definir-tipos-de-elementos-propios">4.7. Definir tipos de elementos propios</a></li>
+<li><a class="reference internal" href="#elementos-basicos">4.8. ELEMENTOS BASICOS</a></li>
+<li><a class="reference internal" href="#elementos-visuales">4.9. ELEMENTOS VISUALES</a><ul>
+<li><a class="reference internal" href="#texto">4.9.1. Texto</a></li>
+<li><a class="reference internal" href="#rectangulo">4.9.2. Rectangulo</a></li>
 </ul>
 </li>
 </ul>

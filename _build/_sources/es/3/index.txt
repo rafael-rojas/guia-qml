@@ -12,6 +12,7 @@ Plasmoides
 
     El codigo fuente de este capitulo se encuentra en `la carpeta fuentes <../fuentes>`_.
 
+¿Qué es un plasmoide?
 
 Creando un plasmoide
 ====================
@@ -44,6 +45,8 @@ Creamos la estructura del plasmoide para ello cremos una carpeta hello-world par
 
 Una vez ya tenemos toda la estructura creada, siguiendo el tutorial, introducimos el contenido al archivo ``.desktop`` dentro del archivo metadata.desktop
 
+¿Qué es un .desktop?
+
 cambiamos el autor, el email y el nombre por ejemplo
 
 .. code-block:: desktop 
@@ -65,6 +68,8 @@ cambiamos el autor, el email y el nombre por ejemplo
     X-Plasma-MainScript=ui/main.qml
     X-Plasma-RemoteLocation=
     X-KDE-PluginInfo-Category=Windows and Tasks
+
+Explicar lineas
 
 X-KDE-PluginInfo-Category: son algunas de las categorias de plasmoides que hay para elegir en plasma 5 por su nombre en ingles y existen las siguientes:
 
@@ -151,7 +156,7 @@ En este apartado vamos a conocer los componentes que nos permitiran programar Pl
 
         * Evita usar tus propias fuentes y colores. Usa las que te proporciona el tema actual de Plasma.
         * Evita usar el elemento ``Text`` de QML. En su lugar usa el elemento ``Label`` de los componentes de Plasma ya que este elemento es capaz de poner las fuentes correctas con el tamaño correcto automaticamente.
-        * No ajustes tamaños de fuente y estilos.
+        * No ajustes tamaños de fuente y estilos manualmente.
         * En las cabeceras usa el elemento ``Heading`` de Plasma fijando el nivel apropiado para afectar al tamaño de fuente.
         * Fija todas las animaciones a ``Theme.ShortAnimation`` o ``Theme.LongAnimation`` apropiadamente.
         * No uses ``QtQuick.Controls`` directamente desde dentro de la vista principal del plasmoide.

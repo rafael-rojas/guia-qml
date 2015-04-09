@@ -6,14 +6,69 @@ QML básico
 
 .. issues:: 4
 
-Sintaxis de QML
----------------
+¿Qué es QML?
+------------
 
-QML es un lenguaje declarativo que se usa para describir la interfaz grafica de tu aplicación. QML describe el aspecto y el comportamiento de la misma. La interfaz se divide en elementos mas pequeños que se combinan con componentes.
+QML es un lenguaje declarativo que se usa para describir la interfaz grafica de tu aplicación. 
+
+QML describe el aspecto y el comportamiento de la misma. La interfaz se divide en elementos mas pequeños que se combinan con componentes.
+
 Así pues un archivo QML no es mas que una descripción detallada de como quieres que sean los elementos que componen tu programa. Esta descripción puede enriquecerse para que proporcione una logica mas compleja utilizando el lenguaje de programación Javascript.
 
-Consideraciones iniciales sobre QML
-====================================
+Archivos .qml 
+-------------
+
+Guardamos nuestra interfaz en la forma de archivos de texto con extensión .qml.
+
+Visualizar rapidamente tu interfaz QML
+--------------------------------------
+
+A la hora de diseñar la interfaz grafica de tu aplicacion o programa, Qt proporciona una herramienta para previsualizar el aspecto de tus archivos QML que es muy util a la hora de diseñar.
+
+Esta herramienta es ``qmlscene``.
+
+En Kubuntu puedes acceder a esta herramienta buscandola con
+
+.. code-block:: shell
+
+  $ locate qmlscene
+  
+y te devolvera la ubicación de la herramienta
+
+.. code-block:: shell
+
+    /usr/bin/qmlscene
+  
+.. image:: img/qmlscene.png
+  
+Aunque normalmente con escribir ``qmlscene`` en tu terminal ya podrás utilizarla.
+
+Tambiene puedes usar las teclas ``Alt`` + ``F2`` y escribir ``qmlscene``, inmediatamente te saldra la opcion "Ejecutar qmlscene" pinchas sobre ella y ya podras ver el selector donde escoger tu archivo .qml a visualizar.
+
+.. image:: img/qmlscene_altf2.png
+
+Esta herramienta es un poco engorrosa de usar porque no recuerda el ultimo directorio que has utilizado y cada vez debes volver a ir a la carpeta donde tienes tus archivos QML. Es por esto que se recomienda usarla desde el directorio donde tengas los archivos qml a visualizar
+
+imagen
+
+Un ejemplo de archivo QML 
+-------------------------
+
+Veamos un ejemplo sencillo de archivo QML:
+
+.. literalinclude:: ejemplos/cuadrado.qml
+    :caption: Ejemplo:
+    :name: cuadrado
+    :lines: 2,4,5,9,10
+    
+Y se veria así en qmlscene:
+
+.. image:: img/cuadrado.png
+
+Sintaxis y estructura de archivos QML
+-------------------------------------
+
+Visto el ejemplo, vamos a ver cual es la sintaxis que se usa en los archivos QML.
 
 * Un archivo QML no es mas que una jerarquia  de elementos.
 * Cada archivo QML unicamente puede tener un elemento raiz, como ocurre en los archivos HTML.
@@ -30,35 +85,126 @@ Consideraciones iniciales sobre QML
     Es importante comprender que existen elementos padres, hijos y hermanos. Debido a como se verá mas adelante existen grupos de propiedades comunes a todos los elementos, como las propiedades ``anchors``, que se aplican con respecto a los elementos padre y hermanos de un elemento.
     
 * Se puede acceder al elemento padre de un elemento con la palabra clave ``parent``.
-* Los comentarios se hacen utilizando ``//`` para un unica linea y ``/* */`` para multiples lineas, igual que en C,C++ y Javascript.
+* Los comentarios se hacen utilizando ``//`` para una unica linea y ``/* */`` para multiples lineas, igual que en C,C++ y Javascript.
 
-Un ejemplo de archivo QML 
-=========================
+Un ejemplo mas elaborado de archivo QML 
+=======================================
+
+Veamos un ejemplo un poco mas complejo. En este caso tenemos un elemento de tipo rectangulo llamado root con unas propiedades de ancho, alto y color que es padre de un elemento de tipo imagen llamado rocket.
     
 .. literalinclude:: ejemplos/rectangulo.qml
     :start-after: M1>>
     :end-before: <<M1
 
-La sentencia ``import`` importa un modulo en una determinada versión.
+Al inicio del archivo tenemos la sentencia ``import`` que se encarga de importar un modulo en una determinada versión.
 
-En este caso y de forma general cuando se desean utilizar los elementos proporcionados por defecto por Qt para realizar interfaces graficas de usuario (GUIs), importamos el modulo QtQuick 2.0 como juego inicial de elementos.
+En este caso y de forma general cuando se desean utilizar los elementos proporcionados por defecto por Qt para realizar interfaces graficas de usuario (GUIs), importamos el modulo QtQuick en su versión 2.0 para poder utilizar sus elementos predefinidos.
 
-Esto nos permite definir root como un elemento de tipo Rectangle, el tipo Rectangle es un elemento definido en el modulo QtQuick. Sin importar dicho modulo, el tipo Rectangle será desconocido para nuestro programa.
+Esto nos permite definir al elemento llamado root como un elemento de tipo Rectangle, el tipo Rectangle es un elemento definido en el modulo QtQuick. Sin importar dicho modulo, el tipo Rectangle será desconocido para nuestro programa.
 
+.. note:: 
+
+    ¿Qué ocurre si no importas el modulo QtQuick? 
+    
+    * Si usas elementos de Qtquick
+    * Si no usas elementos de Qtquick
+
+
+Propiedades
+===========
+
+Como hemos visto las propiedades se definen con un par <nombre>: <valor>. 
 
 Las propiedades se pueden especificar una por linea en cuyo caso no añadimos ningún caracter al final de la linea. 
 
-.. code-block::
-        color: "#D8D8D8"
+.. code-block:: qml
+    :caption: Una linea, una propiedad
+    :name: linea-unica
+    
+    color: "#D8D8D8"
 
 O se pueden escribir varias propiedades en una misma linea como ocurre en el ejemplo anterior:
 
-.. code-block::
-        width: 120; height: 240
+.. code-block:: qml
+    :caption: Una linea, dos propiedades
+    :name: linea-multiple
+
+    width: 120; height: 240
 
 En este caso debemos separar cada propiedad con un ";".
 
-Falta ejemplo.
+.. important::
+
+  Las propiedades tienen definido un tipo de datos para sus valores y solo aceptan valores que sean de ese mismo tipo de datos.
+  
+  Por ejemplo si una propiedad ha sido definida como que acepta numeros enteros los valores que se asignen a esa propiedad deberan ser de tipo entero.
+  
+  Si a una propiedad que espera valores de tipo real le asignas un valor de tipo cadena obtendras un error:
+  property int longitud: "verde" //error
+
+Tipos de valores de las propiedades
+===================================
+
+http://developer.ubuntu.com/api/qml/sdk-1.0/QtQml.qtqml-syntax-objectattributes/#valid-property-values
+
+Existen dos tipos de valores que pueden asiganrse a una propiedad, valores estaticos y expresiones.
+
+Valores estaticos
+=================
+
+Son valores cuyo tipo coincide (o debe poderse convertir) con el tipo de valor que se le puede asignar a la propiedad.
+
+http://developer.ubuntu.com/api/qml/sdk-1.0/QtQml.qtqml-typesystem-basictypes/
+
+Los valores aceptan los siguientes tipos de datos basicos:
+
++---------------+---------------------------------------------------------------+
+| tipo		|								|
++===============+===============================================================+
+| int 		| numeros enteros						|
++---------------+---------------------------------------------------------------+
+| bool		| true o false							|
++---------------+---------------------------------------------------------------+
+| real		| numeros con un punto decimal					|
++---------------+---------------------------------------------------------------+
+| double	| numeros con un punto decimal guardado con doble precisión	|
++---------------+---------------------------------------------------------------+
+| string	| cadena, una cadena de texto					|
++---------------+---------------------------------------------------------------+
+| url		| localizador de recursos**					|
++---------------+---------------------------------------------------------------+
+| list		| lista, una lista de elementos QML 				|
++---------------+---------------------------------------------------------------+
+| var 		| una variable, normalmente un tipo de propiedad generico**	|
++---------------+---------------------------------------------------------------+
+| enumeration	| una enumeracion de nombres					|
++---------------+---------------------------------------------------------------+
+
+.. warning::
+
+  Los valores de tipo cadena deben ir entrecomillados con comillas dobles o con comillas simples.
+  
+Ademas de los tipos de datos basicos de QML, los modulos de QML proporcionan otros tipos de datos mas complejos:
+
++---------------+-----------------------------------------------------------------------+
+| tipo		|									|
++===============+=======================================================================+
+| date 		| tipo fecha								|
++---------------+-----------------------------------------------------------------------+
+| time		| tipo hora								|
++---------------+-----------------------------------------------------------------------+
+| point		| tipo punto, un valor con coordenadas x e y como atributos		|
++---------------+-----------------------------------------------------------------------+
+| size		| tipo tamaño, un valor con ancho e alto como atributos (width, height)	|
++---------------+-----------------------------------------------------------------------+
+| rect		| un valor con atributos x,y,width y height**				|
++---------------+-----------------------------------------------------------------------+
+
+.. note::
+
+  Para poder usar estos tipos de datos debes importar los modulos correspondientes que los proporcionan.
+  
+probar
 
 Expresiones
 ===========
@@ -68,43 +214,76 @@ guia JavaScript https://developer.mozilla.org/en/JavaScript/Guide
 
 A las propiedades ademas de asignar valores, podemos asignar expresiones escritas en JavaScript:
 
-.. code-block::
-       Rotación {
-        angulo: 360 * 3
-        } 
+.. code-block:: qml
+
+    Rotación {
+      //expresión con un producto
+      angulo: 360 * 3
+    } 
+
+El resultado de las expresiones debe coincidir con el tipo de dato esperado por la propiedad (o debe poderse convertir).
 
 Estas expresiones pueden incluir referencias a otros elementos y propiedades, en cuyo caso se establece un enlace. Si el valor de la expresión cambia, la propiedad que ha sido enlazada cambia tambien su valor.
 
 .. note::
-        Para hacer referencia a un elemento concreto se usa el valor de su propiedad ``id``.
-
-
-
-
-
-
-
-Que pasa si no importas QtQuick
--------------------------------
-
-Situación
-----------
-
-Los elementos hijos heredan el sistema de coordenadas del padre, las coordenadas x e y son siempre relativas al padre.
+        Para hacer referencia a un elemento concreto se usa el valor de su propiedad ``id``, que tiene que estar definida.
 
 Propiedades comunes de elementos QML
 -------------------------------------
 
-``id`` se suele usar para asignar un identificador a un elemento y poder referenciarlo.
+Vamos a ver las propiedades que son comunes a todos los tipos de elementos de QML. 
+
+Es decir, puedes usar estas propiedades en todos los elementos de QML.
+
+Propiedad identificador
+=======================
+
+* ``id`` se usa para asignar un identificador a un elemento y poder referenciarlo.
+
+.. important::
+
+    Un ``id`` debe usarse unicamente para referenciar elementos dentro de un mismo archivo. Si quieres hacer referencia a elementos externos es mejor usar otros mecanismos, como definir propiedades en el elemento raiz de tu archivo QML.
+    
+    De lo contrario y debido al mecanismo dinamyc-scoping que proporciona QML puedes acabar referenciando elementos equivocados.
+
+.. literalinclude:: ejemplos/cuadrado.qml
+    :caption: Ejemplo:
+    :name: cuadrado
+    :lines: 2,4,5,10
 
 Propiedades de geometria
 ========================
 
-* ``x`` es la posicion x del elemento.
-* ``y`` es la posicion y del elemento.
-* ``z`` es la posicion z del elemento.
 * ``width`` es el ancho del elemento.
 * ``height`` es el alto del elemento.
+
+Propiedades de situación
+========================
+
+* ``x`` es la posicion sobre el eje horizontal empezando desde la esquina superior izquierda del elemento.
+
+.. note::
+
+    En los ejemplos fijate unicamente en las propiedades comunes a todos los elementos, los elementos que aparecen en los ejemplos de tipo Rectangle u otros tipos y sus propiedades especificas los veremos en profundidad mas adelante.
+
+.. literalinclude:: ejemplos/cuadrado_x.qml
+.. image:: img/cuadrado_x.png
+
+* ``y`` es la posicion sobre el eje vertical empezando desde la esquina superior izquierda del elemento.
+
+.. literalinclude:: ejemplos/cuadrado_y.qml
+.. image:: img/cuadrado_y.png
+
+Ambas propiedades combinadas:
+
+.. literalinclude:: ejemplos/cuadrado_xy.qml
+.. image:: img/cuadrado_xy.png
+
+.. important::
+
+  Los elementos hijos heredan el sistema de coordenadas del padre, las coordenadas x e y son siempre relativas al padre.
+
+* ``z`` segun este valor un elemento se dibujará por encima o por debajo de otros elementos.
 
 Propiedades de gestión de Layout
 ================================
@@ -168,29 +347,37 @@ Existen las siguientes propiedades:
 Key handling
 ============
 
-* attached Key and KeyNavigation properties to control key handling and 
-* the input focus property to enable key handling in the first place
+* ``Key`` 
+* ``KeyNavigation`` properties to control key handling and 
+* ``focus`` property to enable key handling in the first place
 
-Transformation
+Transformación
 ==============
 
-scale and rotate transformation and the generic transform property list for x,y,z transformation and their transformOrigin point
+* ``scale`` 
+* ``rotate`` 
+* ``transform`` property list for x,y,z transformation 
+* ``transformOrigin`` punto de
 
 Visual
 ======
-* ``opacity`` para controlar el nivel de transparecncia. 
+
+* ``opacity`` para controlar el nivel de transparencia. 
 * ``visible`` para mostrar/ocultar elementos. 
-* ``clip`` to restrain paint operations to the element boundary and 
+* ``clip`` para restringir operaciones de dibujo al elemento frontera. 
 * ``smooth`` para mejorar la calidad de renderizado.
 
-    * antialiasing se usa para decidir si el elemento usa antialiasing o no.
+* ``antialiasing`` se usa para decidir si el elemento usa antialiasing o no.
 
     .. note ::
             El antialiasing elimina el efecto estético desagradable de líneas escalonadas que aparecen en un gráfico o texto con aliasing.
 
-State definition
-================ 	
-states list property with the supported list of states and the current state property as also the transitions list property to animate state changes.
+Definición de estado
+====================
+
+* ``states`` list property with the supported list of states and the current 
+* ``state`` property as also the 
+* ``transitions`` list property to animate state changes.
 
 .. note::
 
@@ -204,12 +391,6 @@ states list property with the supported list of states and the current state pro
 Definir tipos de elementos propios
 ----------------------------------
 Puedes definir tus propios tipos de elementos, añadiendole una o varias de las anteriores propiedades comunes a todos los elementos. Nuevas propiedades con valores o expresiones, o incluso añadirle nuevos elementos o elementos ya existentes.
-
-
-Visualizar tu interfaz QML
---------------------------
-qmlscene
-
 
 ELEMENTOS BASICOS
 -----------------

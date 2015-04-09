@@ -56,6 +56,279 @@
             
   <div class="section" id="qml-y-javascript">
 <h1>5. QML y Javascript<a class="headerlink" href="#qml-y-javascript" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Ya hemos visto que QML es un lenguaje declarativo que se usa para describir la interfaz de usuario. Pero ademas de describir la interfaz necesitamos añadir una logica a nuestros programas o expresar operaciones que añadan cierta funcionalidad a nuestras aplicaciones, ahi entra JavaScript.</p>
+<p>Podemos insertar codigo JavaScript en diferentes partes de un archivo QML, insertando funciones JS, insertando un modulo JS o en forma de expresion asignada como valor a cualquier propiedad.</p>
+<ul>
+<li><p class="first">Insertando un modulo JS</p>
+<div class="highlight-qml"><div class="highlight"><pre><span class="kr">import</span> <span class="s2">&quot;logica.js&quot;</span> <span class="nx">as</span> <span class="nx">Logica</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Como una función</p>
+<div class="highlight-qml"><div class="highlight"><pre><span class="nx">Button</span> <span class="p">{</span>
+  <span class="kd">id: boton</span>
+  <span class="k">width:</span> <span class="mi">200</span>
+  <span class="k">height:</span> <span class="mi">100</span>
+
+  <span class="kd">function</span> <span class="nx">mensaje</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;botón apretado&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Como expresión en propiedades</p>
+<div class="highlight-qml"><div class="highlight"><pre><span class="nx">Button</span> <span class="p">{</span>
+  <span class="kd">id: boton</span>
+  <span class="k">width:</span> <span class="mi">200</span>
+  <span class="k">height:</span> <span class="mi">100</span>
+
+  <span class="kd">function</span> <span class="nx">mensaje</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;botón apretado&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">onTriggered:</span> <span class="p">{</span>
+    <span class="c1">//codigo JavaScript como valor de una propiedad</span>
+    <span class="nx">mensaje</span><span class="p">();</span>
+    <span class="nx">Qt</span><span class="p">.</span><span class="nx">quit</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Si estas familiarizado con el desarrollo web conocerás que en HTML solo puedes añadir codigo javascript en los controladores de eventos, el codigo javascript se inicializa  al cargarse la pagina pero no puedes usar JS en valores de propiedades.</p>
+<div class="section" id="javascript">
+<h2>5.1. JavaScript<a class="headerlink" href="#javascript" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Javascript fue introducido en 1995 como una forma de añadir programas a las paginas web en el navegador Netscape Navigator. Hoy en dia ha sido adoptado por todos lo grandes navegadores web y hace posible las aplicaciones web modernas.</p>
+<p>JavaScript es un lenguaje de programción interpretado basado en el estandar ECMAScript, orientado a objetos, basado en prototipos, debilmente tipado. JavaScript se diseñó con una sintaxis similar al C, aunque adopta nombres y convenciones del lenguaje de programación Java. Sin embargo Java y JavaScript no están relacionados, tienen semánticas y propósitos diferentes.</p>
+</div>
+<div class="section" id="historia">
+<h2>5.2. Historia<a class="headerlink" href="#historia" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="el-lenguaje">
+<h2>5.3. El lenguaje<a class="headerlink" href="#el-lenguaje" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="valores-en-javascript">
+<h3>5.3.1. Valores en Javascript<a class="headerlink" href="#valores-en-javascript" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La informacion que maneja un ordenador no es mas que un flujo de bits, cantidades enormes de ceros y unos que pueden almacenarse en las memorias de almacenamiento de hoy en dia. Para ser capaces de trabajar con tales cantidades de información dividimos las secuencias de bits en trozos mas pequeños a los que llamamamos valores en JS.</p>
+<p>Todos los valores son secuencias de bits, mas o menos largas, que interpretan papeles diferentes. Cada valor representa un tipo que determina su papel. En JS existen seis tipos basicos de valores:</p>
+<ul class="simple">
+<li>Numeros</li>
+<li>Cadenas</li>
+<li>Booleanos</li>
+<li>Objetos</li>
+<li>Funciones</li>
+<li>Valores undefined</li>
+</ul>
+</div>
+<div class="section" id="numeros">
+<h3>5.3.2. Numeros<a class="headerlink" href="#numeros" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los valores de tipo number representan valores numericos. Javascript usa un numero fijo de 64 bits de memoria para almacenar un valor numerico. Esto quiere decir que cada vez que escribes un valor numerico en un programa JavaScript, JS reserva 64 bits (8 bytes) de memoria para almacenarlo.</p>
+<p>Ejemplos de como representar diferentes valores numericos:</p>
+<p>Valor entero:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="mi">14</span> <span class="c1">//numeros no decimales</span>
+</pre></div>
+</div>
+<p>Decimal:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="mf">0.12</span> <span class="c1">//usamos un punto para representarlos</span>
+</pre></div>
+</div>
+<p>Puedes usar notación cientifica para representar decimales:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="mf">3.777e8</span> <span class="c1">//la e significa exponente</span>
+        <span class="c1">//3.777 x 10 elevado a 8</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">64 bits para representar valores numericos es un numero finito, esto hace que los numeros decimales (o fraccionarios) no sean siempre 100% precisos y en algunos casos sean aproximados.</p>
+</div>
+<p>Numeros especiales:</p>
+<p>Se consideran numeros pero no se comportan como numeros normales.</p>
+<ul class="simple">
+<li>Infinity</li>
+<li>-Infinity</li>
+<li>NaN</li>
+</ul>
+</div>
+<div class="section" id="cadenas">
+<h3>5.3.3. Cadenas<a class="headerlink" href="#cadenas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los valores de tipo string se usan para representar textos. Se escriben entre comillas dobles o simples.</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="s2">&quot;Esto es un texto&quot;</span>
+<span class="s1">&#39;Esto es otro texto&#39;</span>
+</pre></div>
+</div>
+<p>Se usan ambos tipos de comillas indiferentemente, pero debes siempre empezar y acabar el texto con el mismo tipo de comillas.
+Los caracteres especiales se escapan con barra invertida <code class="docutils literal"><span class="pre">\</span></code>. Esto es util si por ejmplo quieres tener un exto que incluya dobles comillas o comillas simples.</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="s2">&quot;Esto es un texto con \&quot;\&quot; &quot;</span>
+</pre></div>
+</div>
+<p>Se veria como:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="s1">&#39;Esto es un texto con &quot;&quot; &#39;</span>
+</pre></div>
+</div>
+<p>Las cadenas no pueden dividirse, multiplicarse, o sustraerse.
+Pero podemos usar el operador + para concatenar cadenas, es decir unir dos cadenas de texto una detras de otra en una sola.</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="s2">&quot;cara&quot;</span> <span class="o">+</span> <span class="s2">&quot;cola&quot;</span>
+</pre></div>
+</div>
+<p>Da como resultado:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="s2">&quot;caracola&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="booleanos">
+<h3>5.3.4. Booleanos<a class="headerlink" href="#booleanos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Son valores que se usan para distinguir entre dos posibles estados, o dos posibilidades. Se usa para representar cosas como si o no, encendido o apagado, verdaero o falso. El tipo Bool de Javascript solo puede tomar dos valores <code class="docutils literal"><span class="pre">true</span></code> o <code class="docutils literal"><span class="pre">false</span></code>.</p>
+</div>
+<div class="section" id="objetos">
+<h3>5.3.5. Objetos<a class="headerlink" href="#objetos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los objetos son un tipo de valor que nos permite agrupar otros tipos de valores y asi crear tipos mas complejos. Más adelante mas.</p>
+</div>
+<div class="section" id="funciones">
+<h3>5.3.6. Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Una función es una porción de codigo encapsulada en un valor. En JavaScript las funciones son tambien un tipo basico de valor. De forma que al asignar una función como valor de una variable, el codigo encapsulado en la funcion se ejecutara.</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="c1">//al asignar una funcion a la variable producto</span>
+<span class="c1">//producto pasa a almacenar el resultado de a * b</span>
+
+<span class="kd">var</span> <span class="nx">producto</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Mas adelante veremos que son las variables, que significa el caracter <code class="docutils literal"><span class="pre">*</span></code> y como se forman las funciones</p>
+</div>
+</div>
+<div class="section" id="valores-undefined">
+<h3>5.3.7. Valores undefined<a class="headerlink" href="#valores-undefined" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Este tipo de valores denotan ausencia de valor. JS tiene los valores <code class="docutils literal"><span class="pre">null</span></code> y <code class="docutils literal"><span class="pre">undefined</span></code> ambos son valores pero no representan información alguna.</p>
+</div>
+</div>
+<div class="section" id="operadores">
+<h2>5.4. Operadores<a class="headerlink" href="#operadores" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="operadores-aritmeticos">
+<h3>5.4.1. Operadores Aritmeticos<a class="headerlink" href="#operadores-aritmeticos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>JS tiene los siguientes operadores aritmeticos:</p>
+<ul class="simple">
+<li>Operador suma <code class="docutils literal"><span class="pre">+</span></code> que suma numeros</li>
+<li>Operador producto <code class="docutils literal"><span class="pre">*</span></code> que multiplica numeros</li>
+<li>Operador resta <code class="docutils literal"><span class="pre">-</span></code> que resta numeros</li>
+<li>Operador división <code class="docutils literal"><span class="pre">/</span></code> que divide numeros</li>
+<li>Operador modulo <code class="docutils literal"><span class="pre">%</span></code> que divide numeros y devuelve el resto de la división</li>
+</ul>
+<p>Precedencia de operadores aritmeticos:</p>
+<p>division, producto y modulo tienen la misma precedencia.</p>
+<p>suma y resta tienen la misma precedencia.</p>
+<p>division, producto y modulo tienen prioridad sobre suma y resta.</p>
+<p>Si hay operadores con la misma precedencia y hay ausencia de parentesis la precedencia se aplica de izquierda a derecha.</p>
+<p>operadores dentro de parentesis tienen precedencia.</p>
+</div>
+</div>
+<div class="section" id="el-buen-javascript">
+<h2>5.5. EL BUEN JAVASCRIPT<a class="headerlink" href="#el-buen-javascript" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Estas son algunas de la recomendaciones de segun su experiencia progrmando JS, para hacer buen codigo javascript.</p>
+<ul>
+<li><p class="first">Siempre tomate el tiempo necesario para programar de forma correcta.</p>
+</li>
+<li><p class="first">Usa unicamente el operador === para comparaciones.</p>
+</li>
+<li><p class="first">Recuerda que el operador + suma, pero tambien concatena.</p>
+</li>
+<li><p class="first">typeof no funciona siempre bien, evita usarlo.</p>
+</li>
+<li><p class="first">No uses with y eval</p>
+</li>
+<li><p class="first">Usa siempre undefined olvidate de null, en comparaciones === undefined</p>
+</li>
+<li><p class="first">0.1 + 0.2 !== 0.3</p>
+</li>
+<li><p class="first">No uses ++ y &#8211; te ahorraras muchos problemas</p>
+</li>
+<li><p class="first">switch</p>
+</li>
+<li><dl class="first docutils">
+<dt>Usa siempre la notación</dt>
+<dd><p class="first last">x{
+}</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Cosas a no usar:</p>
+<ul class="simple">
+<li>No usar Object.create</li>
+<li>No uses this</li>
+<li>No usar for, usar forEach</li>
+<li>No usar for in, usa Object.keys(object).forEach</li>
+<li>Usa function scopes</li>
+</ul>
+</div>
+<div class="section" id="seguridad-en-archivos-qml">
+<h2>5.6. Seguridad en archivos QML<a class="headerlink" href="#seguridad-en-archivos-qml" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><a class="reference external" href="http://www.aegiap.eu/kdeblog/2015/04/embedded-qml-in-qrc-file/">http://www.aegiap.eu/kdeblog/2015/04/embedded-qml-in-qrc-file/</a></p>
+<p>Embedded QML in qrc file</p>
+<p>KDAB works on a lot of projects based on qml.
+But sometime for specific applications it’s not safe to store directly qml file on file system.
+As you know the QML files are plain text files.</p>
+<p>For example if an user can have access to qml files he can change the logic of the application.
+This is not critical for a application as  “Clock” but it can be critical in other domains.</p>
+<p>So there is two methods to avoid it:</p>
+<blockquote>
+<div>Using the Qt Resource for embedding the QML files (This blog will explain how to do).
+Using the qtquickcompiler to generate a precompiled QML file (But a commercial license is needed)</div></blockquote>
+<p>The Qt Resource system allows to store a lot of data/binary files in executable directly.
+Data can be an icon, a translation file, etc. and of course a QML file.</p>
+<p>This blog will explain how to use it in a QML plugins implemented based on a QMLExtensionPlugins class.</p>
+<p>For a standard application which uses some QML files this is very easy. We put them in a qrc file and we can access to it directly with a line as “view.setSource(QUrl(QStringLiteral(“qrc:/plugins.qml”)));”</p>
+<p>We will see how to do it on a example based on qmlextensionplugins.</p>
+<p>We adapted a qt qmlextensionplugins example (It’s the Clock example that you can find in qt source code) to create an little application.
+Source code can be download here</p>
+<p>It will display a clock.
+The pro files were adapted to allow to install apps in “install” directory.
+(qmake &amp;&amp; make &amp;&amp; make install).</p>
+<p>When you look at install folder you can see all these files.</p>
+<p>./plugins.qml
+./extensionpluginsapps
+./TimeExample/hour.png
+./TimeExample/minute.png
+./TimeExample/clock.png
+./TimeExample/qmldir
+./TimeExample/center.png
+./TimeExample/libqmlqtimeexampleplugin.so
+./TimeExample/Clock.qml
+./TimeExample</p>
+<p>=&gt; As you see the QML files are stored on filesystem.</p>
+<p>Now what we need to change for using Qt Resource ?</p>
+<p>We will create a Qt Resouce file which will embed all qml files and icons.</p>
+<p>”
+&lt;RCC&gt;
+&lt;qresource prefix=”/clock”&gt;
+&lt;file&gt;Clock.qml&lt;/file&gt;
+&lt;file&gt;center.png&lt;/file&gt;
+&lt;file&gt;clock.png&lt;/file&gt;
+&lt;file&gt;hour.png&lt;/file&gt;
+&lt;file&gt;minute.png&lt;/file&gt;
+&lt;/qresource&gt;
+&lt;/RCC&gt;
+”</p>
+<p>There is not a specific prefix.
+And you just need to adapt qmldir for using a specific QtResource path (use qrc:///&lt;path&gt;)</p>
+<p>”
+module TimeExample
+Clock 1.0 qrc:///clock/Clock.qml
+plugin qmlqtimeexampleplugin
+”
+Of course the file qmldir can’t be stored in Qt Resource file otherwise  the application will not be able to  find plugin.</p>
+<p>As you see now the list of files in install directory is limited to:</p>
+<p>./extensionpluginsapps
+./TimeExample/qmldir
+./TimeExample/libqmlqtimeexampleplugin.so
+./TimeExample</p>
+<p>(of course I stored plugins.qml in another qrc file).</p>
+<p>So the application is more safe now.</p>
+<p>You can get source code here</p>
+</div>
 </div>
 
 
@@ -64,6 +337,31 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. QML y Javascript</a><ul>
+<li><a class="reference internal" href="#javascript">5.1. JavaScript</a></li>
+<li><a class="reference internal" href="#historia">5.2. Historia</a></li>
+<li><a class="reference internal" href="#el-lenguaje">5.3. El lenguaje</a><ul>
+<li><a class="reference internal" href="#valores-en-javascript">5.3.1. Valores en Javascript</a></li>
+<li><a class="reference internal" href="#numeros">5.3.2. Numeros</a></li>
+<li><a class="reference internal" href="#cadenas">5.3.3. Cadenas</a></li>
+<li><a class="reference internal" href="#booleanos">5.3.4. Booleanos</a></li>
+<li><a class="reference internal" href="#objetos">5.3.5. Objetos</a></li>
+<li><a class="reference internal" href="#funciones">5.3.6. Funciones</a></li>
+<li><a class="reference internal" href="#valores-undefined">5.3.7. Valores undefined</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operadores">5.4. Operadores</a><ul>
+<li><a class="reference internal" href="#operadores-aritmeticos">5.4.1. Operadores Aritmeticos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#el-buen-javascript">5.5. EL BUEN JAVASCRIPT</a></li>
+<li><a class="reference internal" href="#seguridad-en-archivos-qml">5.6. Seguridad en archivos QML</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Tema anterior</h4>
   <p class="topless"><a href="../4/index.html"
                         title="capítulo anterior">4. QML básico</a></p>

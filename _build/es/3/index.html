@@ -60,6 +60,7 @@
 <p class="first admonition-title">Nota</p>
 <p class="last">El codigo fuente de este capitulo se encuentra en <a class="reference external" href="../fuentes">la carpeta fuentes</a>.</p>
 </div>
+<p>¿Qué es un plasmoide?</p>
 <div class="section" id="creando-un-plasmoide">
 <h2>3.1. Creando un plasmoide<a class="headerlink" href="#creando-un-plasmoide" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Vamos a crear un pequeño plasmoide que mostrara el tipico mensaje de todos los primeros programas hechos en programación: &#8220;Hola mundo&#8221;. Este plasmoide nos ayudará a comenzar a programar con QML de una forma rapida.</p>
@@ -73,6 +74,7 @@
 </div>
 <p>Creamos la estructura del plasmoide para ello cremos una carpeta hello-world para el plasmoide y creamos los archivos:</p>
 <p>Una vez ya tenemos toda la estructura creada, siguiendo el tutorial, introducimos el contenido al archivo <code class="docutils literal"><span class="pre">.desktop</span></code> dentro del archivo metadata.desktop</p>
+<p>¿Qué es un .desktop?</p>
 <p>cambiamos el autor, el email y el nombre por ejemplo</p>
 <div class="highlight-desktop"><div class="highlight"><pre>[Desktop Entry]
 Encoding=UTF-8
@@ -93,6 +95,7 @@ X-Plasma-RemoteLocation=
 X-KDE-PluginInfo-Category=Windows and Tasks
 </pre></div>
 </div>
+<p>Explicar lineas</p>
 <p>X-KDE-PluginInfo-Category: son algunas de las categorias de plasmoides que hay para elegir en plasma 5 por su nombre en ingles y existen las siguientes:</p>
 <ul class="simple">
 <li>Application Launchers</li>
@@ -162,7 +165,7 @@ modificamos el archivo <code class="docutils literal"><span class="pre">main.qml
 <ul class="last simple">
 <li>Evita usar tus propias fuentes y colores. Usa las que te proporciona el tema actual de Plasma.</li>
 <li>Evita usar el elemento <code class="docutils literal"><span class="pre">Text</span></code> de QML. En su lugar usa el elemento <code class="docutils literal"><span class="pre">Label</span></code> de los componentes de Plasma ya que este elemento es capaz de poner las fuentes correctas con el tamaño correcto automaticamente.</li>
-<li>No ajustes tamaños de fuente y estilos.</li>
+<li>No ajustes tamaños de fuente y estilos manualmente.</li>
 <li>En las cabeceras usa el elemento <code class="docutils literal"><span class="pre">Heading</span></code> de Plasma fijando el nivel apropiado para afectar al tamaño de fuente.</li>
 <li>Fija todas las animaciones a <code class="docutils literal"><span class="pre">Theme.ShortAnimation</span></code> o <code class="docutils literal"><span class="pre">Theme.LongAnimation</span></code> apropiadamente.</li>
 <li>No uses <code class="docutils literal"><span class="pre">QtQuick.Controls</span></code> directamente desde dentro de la vista principal del plasmoide.</li>
